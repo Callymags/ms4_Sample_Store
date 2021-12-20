@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif&family=Oxygen:wght@300&display=swap');
+
+body {
+    font-family: 'Noto Serif', serif;
+}
+
+h1,
+h2,
+h3,
+h4  {
+    font-family: 'Oxygen', sans-serif;
+}
+
+#topnav,
+#bottom-nav,
+.offcanvas {
+    background-color: #F5F5F5;
+}
+
+.navbar-light .navbar-nav .nav-link,
+.nav-link {
+    color: #2c2c2c;
+}
+
+.navbar-light .navbar-nav .nav-link:hover,
+.nav-link:hover,
+.input-group-text:hover {
+    color: #F05454;
+}
+.input-group-text {
+    background-color: #F5F5F5;
+    border: none;
+}
+
+.dropdown-divider,
+.navbar-divider {
+    border-top: 2px solid rgb(240, 84, 84);
+}
