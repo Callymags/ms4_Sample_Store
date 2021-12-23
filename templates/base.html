@@ -119,12 +119,6 @@
                       <span class="input-group-text" id="search-icon-addon"><i class="fas fa-search icon-style"></i></span>
                     </button>
                   </div>
-                    <!-- <input class="form-control rounded-pill w-75" type="text" name="q" placeholder="Search" aria-label="Search">
-                    <button class="btn" type="submit">
-                      <span class="">
-                        <i class="fas fa-search icon-style"></i>
-                      </span>
-                    </button> -->
                 </form>
               </div>
               <li class="nav-item dropdown d-lg-none pt-2">
@@ -187,78 +181,6 @@
         </div>
       </nav>
     </div>
-    <!-- <div class="row">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-        <div class="col-12 my-auto">
-          <div class="row">
-            <div class="col-4 text-center">
-              <a class="navbar-brand" href="#">MMA Cork</a>
-            </div>
-            <div class="col-4">
-              <form method="GET" action="" class="d-none d-lg-flex justify-content-center">
-                <input class="form-control me-2 rounded-pill" type="text" name="q" placeholder="Search" aria-label="Search">
-                <button class="btn" type="submit">
-                  <span>
-                    <i class="fas fa-search"></i>
-                  </button>
-              </form>
-            </div>
-            <div class="col-4">
-              <ul class="navbar-nav d-flex justify-content-center">
-                <li class="nav-item dropdown pe-2">
-                  <a class="nav-link dropdown-toggle" aria-current="page" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <span><i class="fas fa-user"></i></span>
-                  </a>
-                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    {% if request.user.is_authenticated %}
-                      {% if request.user.is_superuser %}
-                        <li><a class="dropdown-item" href="#">Product Management</a></li>
-                      {% endif %}
-                        <li><a class="dropdown-item" href="#">Profile</a></li>
-                        <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
-                    {% else %}
-                      <li><a class="dropdown-item" href="{% url 'account_login' %}">Login</a></li>
-                      <li><a class="dropdown-item" href="{% url 'account_signup' %}">Register</a></li>
-                    {% endif %}
-                  </ul>
-                </li>
-                <li class="nav-item ps-2">
-                  <a class="nav-link pt-0 pb-0" aria-current="page" href="#"><span><i class="fas fa-shopping-basket"></i></span></a>
-                  <p class="my-0 text-center">
-                    {% if grand_total %}
-                    ${{ grand_total|floatformat:2 }}
-                    {% else %}
-                    $0.00
-                    {% endif %}
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </nav>
-    </div>
-    <div class="row">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light w-100">
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-          aria-controls="offcanvasNavbar">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-              <li class="nav-item">
-                <form class="d-lg-none">
-                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </div> -->
   </header>
 
   {% if messages %}
@@ -271,6 +193,60 @@
 
   {% block content %}
   {% endblock %}
+
+  <footer>
+    <div class="container mt-3 mb-3">
+      <div class="row">
+        <div class="col-md-4 col-sm-12 text-center footer-mobile-margin">
+          <p>Sign up to receive our weekly newsletter</p> 
+          <div class="input-group">
+            <input type="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="email-sub-addon">
+            <span class="input-group-text" id="email-sub-addon"><button type="submit" class="btn button-style">Subscribe</button></span>
+          </div>
+        </div>
+        <hr class="d-lg-none mt-3 w-50 footer-divider offset-3">
+        <div class="col-md-4 col-sm-12 text-center footer-mobile-margin">
+          <h3>Follow us:</h3>
+            <a class="social-link" target="_blank" href="#">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a class="social-link" target="_blank" href="#">
+              <i class="fab fa-tiktok"></i>
+            </a>
+            <a class="social-link" target="_blank" href="#">
+              <i class="fab fa-facebook"></i>
+            </a>
+        </div>
+        <hr class="d-lg-none mt-3 w-50 footer-divider offset-3">
+        <div class="col-sm-12 col-md-4 text-center footer-mobile-margin">
+          <span class="general-icon">
+            <i class="fas fa-map-marker-alt pe-2"></i>
+            Blackpool, Cork, T23 XC85
+          </span>
+          <br>
+          <span class="general-icon">
+            <i class="fas fa-phone pe-2"></i>
+            021-12345678
+          </span>
+          <br>
+          <span class="general-icon">
+            <i class="fas fa-envelope pe-2"></i>
+            mmacork@example.com
+          </span>
+        </div>
+      </div>
+      <hr class="d-lg-none mt-3 w-50 footer-divider offset-3">
+      <div class="row">
+        <div class="col-12 text-center mt-3">
+          <p>&copy current year created by Callan Maguire</p>
+          <span>
+            <i class="fab fa-github social-link"></i>
+            <i class="fab fa-linkedin-in social-link"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+  </footer>
 
   {% block postloadjs %}
   {% endblock %}

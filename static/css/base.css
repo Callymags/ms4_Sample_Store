@@ -1,7 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif&family=Oxygen:wght@300&display=swap');
 
+html {
+    height: 100%;
+}
+
 body {
     font-family: 'Noto Serif', serif;
+    color: #121212;
+
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 h1,
@@ -11,15 +20,20 @@ h4  {
     font-family: 'Oxygen', sans-serif;
 }
 
+/* -------------------NAVBAR--------------------- */
 #topnav,
 #bottom-nav,
 .offcanvas {
     background-color: #F5F5F5;
 }
 
+.navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .show>.nav-link {
+    color: #121212;
+}
+
 .navbar-light .navbar-nav .nav-link,
 .nav-link {
-    color: #2c2c2c;
+    color: #121212;
 }
 
 .navbar-light .navbar-nav .nav-link:hover,
@@ -33,6 +47,39 @@ h4  {
 }
 
 .dropdown-divider,
-.navbar-divider {
+.navbar-divider,
+.footer-divider {
     border-top: 2px solid rgb(240, 84, 84);
+}
+
+/* -------------------FOOTER--------------------- */
+footer {
+    background-color: #F5F5F5;
+    margin-top: auto;
+}
+
+.button-style {
+    background-color: #F05454;
+    color: #F5F5F5;
+}
+
+.social-link {
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: #121212;
+}
+
+.social-link:hover {
+    color: #F05454;
+}
+
+.general-icon {
+    color: #121212;
+}
+
+@media screen and (max-width: 576px) {
+    .footer-mobile-margin {
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+    }   
 }
