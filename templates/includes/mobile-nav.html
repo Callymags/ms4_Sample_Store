@@ -1,0 +1,79 @@
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+    <div class="offcanvas-header">
+        <a class="" href="">
+            <img src="{{ MEDIA_URL }}logo.png" alt="" width="80" height="80">
+        </a>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+            <div class="d-lg-none">
+                <form method="GET" action="" class="d-inline d-lg-none">
+                    <div class="input-group">
+                        <input type="text" class="form-control w-75" name="q" placeholder="Search" aria-label="Search"
+                            aria-describedby="search-icon-addon">
+                        <button class="btn btn-large" type="submit">
+                            <span class="input-group-text" id="search-icon-addon"><i
+                                    class="fas fa-search icon-style"></i></span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <li class="nav-item dropdown d-lg-none pt-2">
+                <a class="nav-link dropdown-toggle" aria-current="page" href="#" id="navbarDropdown" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <span><i class="fas fa-user"></i></span>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    {% if request.user.is_authenticated %}
+                    {% if request.user.is_superuser %}
+                    <li class="pt-2"><a class="dropdown-item" href="#">Product Management</a></li>
+                    {% endif %}
+                    <li class="pt-2"><a class="dropdown-item" href="#">Profile</a></li>
+                    <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
+                    {% else %}
+                    <li class="pt-2"><a class="dropdown-item" href="{% url 'account_login' %}">Login</a></li>
+                    <li class="pt-2"><a class="dropdown-item" href="{% url 'account_signup' %}">Register</a></li>
+                    {% endif %}
+                </ul>
+            </li>
+            <li class="nav-item d-lg-none pt-2">
+                <a class="nav-link pt-0 pb-0 d-inline" aria-current="page" href="#"><span><i
+                            class="fas fa-shopping-basket"></i></span></a>
+                <p class="my-0 text-center d-inline">
+                    {% if grand_total %}
+                    ${{ grand_total|floatformat:2 }}
+                    {% else %}
+                    $0.00
+                    {% endif %}
+                </p>
+            </li>
+            <li class="pt-2 offset-3 d-lg-none">
+                <hr class="dropdown-divider w-50">
+            </li>
+            <li class="nav-item pt-2">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item dropdown pt-2">
+                <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Products
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
+                    <li class="pt-2"><a class="dropdown-item" href="#">All Products</a></li>
+                    <li class="pt-2"><a class="dropdown-item" href="#">Protein</a></li>
+                    <li class="pt-2"><a class="dropdown-item" href="#">Rashguards</a></li>
+                    <li class="pt-2"><a class="dropdown-item" href="#">Spats</a></li>
+                    <li class="pt-2"><a class="dropdown-item" href="#">Shorts</a></li>
+                    <li class="pt-2"><a class="dropdown-item" href="#">T-Shirts</a></li>
+                </ul>
+            </li>
+            <li class="nav-item pt-2">
+                <a class="nav-link" href="#">Blog</a>
+            </li>
+            <li class="nav-item pt-2">
+                <a class="nav-link" href="#">Contact</a>
+            </li>
+        </ul>
+    </div>
+</div>
