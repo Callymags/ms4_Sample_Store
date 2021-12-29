@@ -42,6 +42,17 @@ h4  {
 .input-group-text:hover {
     color: #F05454;
 }
+
+.nav-link:focus {
+    color: #f05454;
+}
+
+.dropdown-item.active, .dropdown-item:active {
+    color: #fff;
+    text-decoration: none;
+    background-color: #f05454;
+}
+
 .input-group-text {
     background-color: #F5F5F5;
     border: none;
