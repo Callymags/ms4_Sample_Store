@@ -3,6 +3,12 @@ from django.db import models
 
 # Create your models here.
 class Category(models.Model):
+    """ Creates Category model on admin page """
+
+    class Meta:
+        """ Updates Category plural name from Categorys to Categories """
+        verbose_name_plural = 'Categories'
+
     name = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
 
@@ -14,6 +20,7 @@ class Category(models.Model):
 
 
 class Product(models.Model):
+    """ Creates Product model on admin page """
     category = models.ForeignKey('Category', null=True, blank=True,
                                  on_delete=models.SET_NULL)
     name = models.CharField(max_length=254)
