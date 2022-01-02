@@ -125,3 +125,14 @@ footer {
     padding-bottom: 1rem;
     text-shadow: 2px 2px #121212;
 }
+
+/* -------------------CARDS--------------------- */
+.card,
+.card-footer {
+    background-color: #FCFCFC;
+}
+
+.product-image  {
+    height: 13rem;
+    object-fit: cover;
+}
