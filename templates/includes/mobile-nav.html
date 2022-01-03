@@ -61,11 +61,11 @@
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
                     <li class="pt-2"><a class="dropdown-item" href="{% url 'products' %}">All Products</a></li>
-                    <li class="pt-2"><a class="dropdown-item" href="#">Protein</a></li>
-                    <li class="pt-2"><a class="dropdown-item" href="#">Rashguards</a></li>
-                    <li class="pt-2"><a class="dropdown-item" href="#">Spats</a></li>
-                    <li class="pt-2"><a class="dropdown-item" href="#">Shorts</a></li>
-                    <li class="pt-2"><a class="dropdown-item" href="#">T-Shirts</a></li>
+                    <li class="pt-2"><a class="dropdown-item" href="{% url 'products' %}?category=rashguards">Rashguards</a></li>
+                    <li class="pt-2"><a class="dropdown-item" href="{% url 'products' %}?category=spats">Spats</a></li>
+                    <li class="pt-2"><a class="dropdown-item" href="{% url 'products' %}?category=shorts">Shorts</a></li>
+                    <li class="pt-2"><a class="dropdown-item" href="{% url 'products' %}?category=t-shirts">T-Shirts</a></li>
+                    <li class="pt-2"><a class="dropdown-item" href="{% url 'products' %}?category=vale-tudo">Vale-Tudos</a></li>
                 </ul>
             </li>
             <li class="nav-item pt-2">
