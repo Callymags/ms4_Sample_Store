@@ -137,4 +137,37 @@ footer {
     object-fit: cover;
 }
 
+/*-------------------W3 SCHOOLS- see README contributions section for more details---------------------*/
+.product-image-container {
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    -webkit-transition: 0.5s ease;
+    -o-transition: 0.5s ease;
+    transition: 0.5s ease;
+    height: 100%;
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 50%;
+    opacity: 0;
+    color: #121212;
+    font-size: 1rem;
+}
+
+.product-image-container:hover .card-img-top {
+    opacity: 0.3;
+}
+
+.product-image-container:hover .overlay {
+    opacity: 1;
+    color: #121212;
+    font-size: 1rem;
+}
+
+/*-------------------W3 SCHOOLS- contribution end ---------------------*/
+
 /* -------------------PRODUCT DETAILS--------------------- */
