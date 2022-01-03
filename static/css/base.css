@@ -137,6 +137,10 @@ footer {
     object-fit: cover;
 }
 
+.category-tags {
+    text-decoration: none;
+}
+
 .sort-button-style {
     background-color: #F5F5F5;
     color: #121212;
