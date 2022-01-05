@@ -80,8 +80,8 @@
             <a class="nav-link pb-0" aria-current="page" href="{% url 'view_bag' %}"><span><i
                   class="fas fa-shopping-basket"></i></span></a>
             <p class="my-0 text-center">
-              {% if grand_total %}
-              €{{ grand_total|floatformat:2 }}
+              {% if total %}
+              €{{ total|floatformat:2 }}
               {% else %}
               €0.00
               {% endif %}
