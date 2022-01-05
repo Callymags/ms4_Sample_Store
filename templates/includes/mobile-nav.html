@@ -38,7 +38,7 @@
                 </ul>
             </li>
             <li class="nav-item d-lg-none pt-2">
-                <a class="nav-link pt-0 pb-0 d-inline" aria-current="page" href="#"><span><i
+                <a class="nav-link pt-0 pb-0 d-inline" aria-current="page" href="{% url 'view_bag' %}"><span><i
                             class="fas fa-shopping-basket"></i></span></a>
                 <p class="my-0 text-center d-inline">
                     {% if grand_total %}
@@ -49,7 +49,7 @@
                 </p>
             </li>
             <li class="pt-2 offset-3 d-lg-none">
-                <hr class="dropdown-divider w-50">
+                <hr class="divider-style w-50">
             </li>
             <li class="nav-item pt-2">
                 <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>

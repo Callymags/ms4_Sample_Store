@@ -29,7 +29,7 @@
                 </select>
             </div>
         </div>
-        <hr class="w-50 products-divider mb-1 ms-auto me-auto">
+        <hr class="w-50 divider-style mb-1 ms-auto me-auto">
         <div class="row">
             <div class="product-container col-10 offset-1">
                 <div class="row mt-1 mb-2"></div>
@@ -81,22 +81,22 @@
                     </div>
                     {% if forloop.counter|divisibleby:1 %}
                     <div class="col-12 d-sm-none mb-5">
-                        <hr class="products-divider">
+                        <hr class="divider-style">
                     </div>
                     {% endif %}
                     {% if forloop.counter|divisibleby:2 %}
                     <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
-                        <hr class="products-divider">
+                        <hr class="divider-style">
                     </div>
                     {% endif %}
                     {% if forloop.counter|divisibleby:3 %}
                     <div class="col-12 d-none d-lg-block d-xl-none mb-5">
-                        <hr class="products-divider">
+                        <hr class="divider-style">
                     </div>
                     {% endif %}
                     {% if forloop.counter|divisibleby:4 %}
                     <div class="col-12 d-none d-xl-block mb-5">
-                        <hr class="products-divider">
+                        <hr class="divider-style">
                     </div>
                     {% endif %}
                     {% endfor %}

@@ -58,10 +58,7 @@ h4  {
     border: none;
 }
 
-.dropdown-divider,
-.navbar-divider,
-.footer-divider,
-.products-divider {
+.divider-style {
     border-top: 2px solid rgb(240, 84, 84);
 }
 
