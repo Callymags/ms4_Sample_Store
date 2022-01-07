@@ -63,7 +63,8 @@ def adjust_bag(request, item_id):
 
 
 def remove_from_bag(request, item_id):
-    """ Remove item from bag """
+    """Remove the item from the shopping bag"""
+
     try:
         size = None
         if 'product_size' in request.POST:
@@ -72,13 +73,13 @@ def remove_from_bag(request, item_id):
 
         if size:
             del bag[item_id]['items_by_size'][size]
-            # Remove item_by_size id if dictionary is empty
-            if not bag[item_id]['item_by_size']:
+            if not bag[item_id]['items_by_size']:
                 bag.pop(item_id)
         else:
             bag.pop(item_id)
 
         request.session['bag'] = bag
         return HttpResponse(status=200)
+
     except Exception as e:
         return HttpResponse(status=500)
