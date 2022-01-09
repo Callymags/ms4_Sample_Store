@@ -107,7 +107,7 @@
   </header>
 
   {% if messages %}
-  <div class="message-container">
+  <div class="toast-container position-absolute top-0 end-0 p-3">
     {% for message in messages %}
       {% include 'includes/toasts/toast_success.html' %}
     {% endfor %}
@@ -177,7 +177,18 @@
 
   {% block postloadjs %}
   <script type="text/javascript">
-      $('.toast').show();
+
+      // *Contribution info in ReadMe: Dismiss toast using the X icon 
+      let toastElList = [].slice.call(document.querySelectorAll('.toast'))
+      let toastList = toastElList.map(function (toastEl) {
+        let option = {
+          animation: true,
+          autohide: true,
+          delay: 5000,
+        }
+        let bsToast = new bootstrap.Toast(toastEl, option)
+        bsToast.show();
+      })
   </script>
   {% endblock %}
 
