@@ -1,4 +1,4 @@
-<div class="toast custom-toast rounded-0 border-top-0">
+<div class="toast toast-success custom-toast rounded-0 border-top-0 me-2">
     <div class="arrow-up arrow-success"></div>
     <div class="w-100 toast-capper"></div>
     <div class="toast-header bg-white text-dark">
@@ -7,6 +7,21 @@
         </button>
     </div>
     <div class="toast-body bg-white">
-        {{ message }}        
+        <div class="row">
+            <div class="col">
+                {{ message }}
+                <hr class="">        
+            </div>
+            {% if total %}
+                <p class="">
+                    You have ({{ product_count }}) items in your basket. Your total is €{{ total|floatformat:2 }}.
+                </p>
+            {% endif %}
+        </div>
+            <div class="col text-end">
+                <a href="{% url 'view_bag' %}" class="btn button-style">
+                    <span><i class="fas fa-shopping-basket"></i> Basket</span>
+                </a>
+            </div>
     </div>
 </div>

@@ -4,7 +4,7 @@
 {% block content %}
 <div class="container-fluid">
     <div class="row mt-5">
-        <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
+        <div class="col-12 col-md-6 col-lg-4 offset-lg-2 product-details">
             <div class="details-image-container">
                 {% if product.image_front %}
                 {% if product.image_back %}
@@ -129,4 +129,15 @@
 {% block postloadjs %}
 {{ block.super }}
 {% include 'products/includes/quantity_input_script.html' %}
+<script type="text/javascript">
+    if($(window).width() <= 576) {
+       if ($('toast').show()) {
+           $('.carousel').addClass('toast-display-over');
+           
+           setTimeout(function() {
+               $('.carousel').removeClass('toast-display-over');
+           }, 5500)
+       }
+    }
+</script>
 {% endblock %}
