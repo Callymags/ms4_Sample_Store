@@ -223,3 +223,23 @@ footer {
     height: 2px;
     background-color: #F05454;
 }
+
+/* -------------------CHECKOUT--------------------- */
+.form-check-input:checked {
+    background-color: #f05454;
+    border-color: #f05454;
+}
+
+.form-check-input:focus {
+    border-color: #f05454;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgb(244 205 205);
+}
+
+.form-control:focus {
+    color: #212529;
+    background-color: #fff;
+    border-color: #f9d3d3;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgb(252 252 252);
+}

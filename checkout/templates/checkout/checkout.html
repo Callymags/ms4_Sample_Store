@@ -7,12 +7,11 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container">
+    <div class="container mt-4">
         <div class="row">
-            <div class="col">
-                <hr>
-                <h2 class="logo-font mb-4">Checkout</h2>
-                <hr>
+            <div class="col text-center">
+                <h2 class="logo-font mb-2">Checkout</h2>
+                <hr class="divider-style w-50 ms-auto me-auto">
             </div>
         </div>
 
@@ -28,11 +27,11 @@
                     </div>
                 </div>
                 {% for item in bag_items %}
-                    <div class="row">
+                    <div class="row mb-3">
                         <div class="col-2 mb-1">
                             <a href="{% url 'product_detail' item.product.id %}">
-                                {% if item.product.image %}
-                                    <img class="w-100" src="{{ item.product.image.url }}" alt="{{ product.name }}">
+                                {% if item.product.image_front %}
+                                    <img class="w-100" src="{{ item.product.image_front.url }}" alt="{{ product.name }}">
                                 {% else %}
                                     <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                                 {% endif %}
@@ -44,17 +43,17 @@
                             <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
                         </div>
                         <div class="col-3 text-right">
-                            <p class="my-0 small text-muted">${{ item.product.price | calc_subtotal:item.quantity }}</p>
+                            <p class="my-0 small text-muted">€{{ item.product.price | calc_subtotal:item.quantity }}</p>
                         </div>
                     </div>
                 {% endfor %}
                 <hr class="my-0">
-                <div class="row text-black text-right">
+                <div class="row text-right mt-3">
                     <div class="col-7 offset-2">
                         <p class="my-0">Order Total:</p>
                     </div>
                     <div class="col-3">
-                        <p class="my-0">${{ total | floatformat:2 }}</p>
+                        <p class="my-0">€{{ total | floatformat:2 }}</p>
                     </div>
                 </div>
             </div>
@@ -62,13 +61,13 @@
                 <p class="text-muted">Please fill out the form below to complete your order</p>
                 <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                     {% csrf_token %}
-                    <fieldset class="rounded px-3 mb-5">
-                        <legend class="fieldset-label small text-black px-2 w-auto">Details</legend>
+                    <fieldset class="rounded mb-5">
+                        <legend class="fieldset-label small px-2 w-auto">Details</legend>
                         {{ order_form.full_name | as_crispy_field }}
                         {{ order_form.email | as_crispy_field }}
                     </fieldset>
-                    <fieldset class="rounded px-3 mb-5">
-                        <legend class="fieldset-label small text-black px-2 w-auto">Delivery</legend>
+                    <fieldset class="rounded mb-5">
+                        <legend class="fieldset-label small px-2 w-auto">Delivery</legend>
                         {{ order_form.phone_number | as_crispy_field }}
                         {{ order_form.country | as_crispy_field }}
                         {{ order_form.postcode | as_crispy_field }}
@@ -88,8 +87,8 @@
 							{% endif %}
 						</div>
                     </fieldset>
-                    <fieldset class="px-3">
-                        <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
+                    <fieldset class="">
+                        <legend class="fieldset-label small px-2 w-auto">Payment</legend>
                         <!-- A Stripe card element will go here -->
                         <div class="mb-3" id="card-element"></div>
 
@@ -110,11 +109,11 @@
 								<i class="fas fa-lock"></i>
 							</span>
 						</button>
-						<p class="small text-danger my-0">
+						<p class="small text-danger my-0 mt-2">
 							<span class="icon">
 								<i class="fas fa-exclamation-circle"></i>
 							</span>
-							<span>Your card will be charged <strong>${{ total|floatformat:2 }}</strong></span>
+							<span>Your card will be charged <strong>€{{ total|floatformat:2 }}</strong></span>
 						</p>
 					</div>
                 </form>
