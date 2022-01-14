@@ -211,8 +211,8 @@ footer {
 }
 
 /* -------------------TOASTS--------------------- */
-.toast {
-    z-index: 99999999999; 
+.toast-container {
+    z-index: 99999999999;
 }
 
 .custom-toast {

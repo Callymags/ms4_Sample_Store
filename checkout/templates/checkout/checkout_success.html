@@ -10,7 +10,7 @@
         <div class="row">
             <div class="col text-center">
                 <h2 class="logo-font mb-2">Thank You!</h2>
-                <hr class="divider-style w-50 ms-auto me-auto">
+                <hr class="divider-style w-50 ms-auto me-auto toast-display-over">
                 <p>Your order information is below. A confirmation email will be sent to {{ order.email }}</p>
             </div>
         </div>
@@ -19,8 +19,8 @@
             <div class="col-12 col-lg-7"></div>
         </div>
         <div class="row">
-            <div class="col-12 col-lg-7 text-end">
-                <a href="{% url 'products' %}" class="btn button-style">
+            <div class="col-12 text-center">
+                <a href="{% url 'products' %}" class="btn button-style mb-4">
                     <span>
                         <i class="fas fa-chevron-left"></i>
                     </span>
@@ -29,4 +29,15 @@
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+<script type="text/javascript">
+    if($(window).width() <= 576) {
+       if ($('.toast').show()) {
+           $('.divider-style').addClass('toast-display-over');
+       }
+    }
+</script>
 {% endblock %}

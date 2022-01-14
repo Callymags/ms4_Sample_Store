@@ -129,15 +129,4 @@
 {% block postloadjs %}
 {{ block.super }}
 {% include 'products/includes/quantity_input_script.html' %}
-<script type="text/javascript">
-    if($(window).width() <= 576) {
-       if ($('toast').show()) {
-           $('.carousel').addClass('toast-display-over');
-           
-           setTimeout(function() {
-               $('.carousel').removeClass('toast-display-over');
-           }, 5500)
-       }
-    }
-</script>
 {% endblock %}
