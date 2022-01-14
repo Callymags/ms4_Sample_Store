@@ -184,10 +184,6 @@ footer {
 /*-------------------W3 SCHOOLS- contribution end ---------------------*/
 
 /* -------------------PRODUCT DETAILS--------------------- */
-.toast-display-over {
-    z-index: -1;
-}
-
 .button-secondary-style {
     background-color: #f5f5f5;
     color: #121212;
