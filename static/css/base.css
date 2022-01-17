@@ -239,3 +239,12 @@ footer {
     outline: 0;
     box-shadow: 0 0 0 0.25rem rgb(252 252 252);
 }
+
+/* -------------------ALLAUTH--------------------- */
+.link-style {
+    color: #F05454;
+}
+
+.link-style:hover {
+    color: #dd6c77;
+}
