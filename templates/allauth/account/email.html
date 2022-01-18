@@ -1,4 +1,4 @@
-{% extends "account/base.html" %}
+<{% extends "account/base.html" %}
 
 {% load i18n %}
 
@@ -34,9 +34,9 @@
   {% endfor %}
 
 <div class="buttonHolder">
-      <button class="secondaryAction" type="submit" name="action_primary" >{% trans 'Make Primary' %}</button>
-      <button class="secondaryAction" type="submit" name="action_send" >{% trans 'Re-send Verification' %}</button>
-      <button class="primaryAction" type="submit" name="action_remove" >{% trans 'Remove' %}</button>
+      <button class="btn button-secondary-style secondaryAction" type="submit" name="action_primary" >{% trans 'Make Primary' %}</button>
+      <button class="btn button-secondary-style secondaryAction" type="submit" name="action_send" >{% trans 'Re-send Verification' %}</button>
+      <button class="btn button-style primaryAction" type="submit" name="action_remove" >{% trans 'Remove' %}</button>
 </div>
 
 </fieldset>
@@ -53,7 +53,7 @@
     <form method="post" action="{% url 'account_email' %}" class="add_email">
         {% csrf_token %}
         {{ form|crispy }}
-        <button name="action_add" type="submit">{% trans "Add E-mail" %}</button>
+        <button name="btn button-style action_add" type="submit">{% trans "Add E-mail" %}</button>
     </form>
 
 {% endblock %}

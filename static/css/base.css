@@ -62,6 +62,10 @@ h4  {
     border-top: 2px solid rgb(240, 84, 84);
 }
 
+input[name='q']::placeholder {
+    color: #aab7c4;
+}
+
 /* -------------------FOOTER--------------------- */
 footer {
     background-color: #F5F5F5;
@@ -247,4 +251,25 @@ footer {
 
 .link-style:hover {
     color: #dd6c77;
+}
+
+.allauth-form-inner-content p {
+    margin-top: 1.5rem; /* mt-4 */
+    color: #6c757d; /* text-secondary */
+}
+
+.allauth-form-inner-content input {
+    margin-top: 1rem;
+}
+
+.form-check-label {
+    margin-top: 0.7rem;
+}
+
+.allauth-form-inner-content label:not([for='id_remember']) {
+    display: none;
+}
+
+.allauth-form-inner-content input::placeholder {
+    color: #aab7c4;
 }
