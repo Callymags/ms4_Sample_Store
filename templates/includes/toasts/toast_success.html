@@ -16,12 +16,12 @@
                 <p class="">
                     You have ({{ product_count }}) items in your basket. Your total is €{{ total|floatformat:2 }}.
                 </p>
+                <div class="col text-end">
+                    <a href="{% url 'view_bag' %}" class="btn button-style">
+                        <span><i class="fas fa-shopping-basket"></i> Basket</span>
+                    </a>
+                </div>
             {% endif %}
         </div>
-            <div class="col text-end">
-                <a href="{% url 'view_bag' %}" class="btn button-style">
-                    <span><i class="fas fa-shopping-basket"></i> Basket</span>
-                </a>
-            </div>
     </div>
 </div>
