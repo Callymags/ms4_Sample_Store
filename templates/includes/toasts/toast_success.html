@@ -12,7 +12,7 @@
                 {{ message }}
                 <hr class="">        
             </div>
-            {% if total %}
+            {% if total and not on_profile_page %}
                 <p class="">
                     You have ({{ product_count }}) items in your basket. Your total is €{{ total|floatformat:2 }}.
                 </p>
