@@ -273,3 +273,8 @@ footer {
 .allauth-form-inner-content input::placeholder {
     color: #aab7c4;
 }
+
+/* -------------------ADD PRODUCT PAGE--------------------- */
+.form-control {
+    margin-bottom: 1rem;
+}
