@@ -164,12 +164,21 @@
         </div>
         <div class="row mt-4">
             <div class="col-12 text-center">
+                {% if from_profile %}
+                <a href="{% url 'profile' %}" class="btn button-style mb-4">
+                    <span>
+                        <i class="fas fa-chevron-left"></i>
+                    </span>
+                    <span>Back to Profile</span>
+                </a>
+                {% else %}
                 <a href="{% url 'products' %}" class="btn button-style mb-4">
                     <span>
                         <i class="fas fa-chevron-left"></i>
                     </span>
                     <span>Keep Shopping</span>
                 </a>
+                {% endif %}
             </div>
         </div>
     </div>
