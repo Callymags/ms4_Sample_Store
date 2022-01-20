@@ -19,7 +19,11 @@
                 {% for item in bag_items %}
                     <div class="row text-center">
                         <div class="col-12 col-sm-6 mb-3">
-                            <img class="img-fluid rounded" src="{{ item.product.image_front.url }}">
+                            {% if item.product.image_front %}
+                            <img class="img-fluid rounded" src="{{ item.product.image_front.url }}" alt="{{ item.product.name }}">
+                            {% else %}
+                            <img class="img-fluid rounded" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}">
+                            {% endif %}
                         </div>
                         <div class="col-12 col-sm-6 content-text my-auto">
                             <p class="my-0"><strong>{{ item.product.name }}</strong></p>
@@ -105,7 +109,11 @@
                     {% for item in bag_items %}
                     <tr>
                         <td class="p-3 w-25">
-                            <img class="img-fluid rounded" src="{{ item.product.image_front.url }}">
+                            {% if item.product.image_front %}
+                            <img class="img-fluid rounded" src="{{ item.product.image_front.url }}" alt="{{ item.product.name }}">
+                            {% else %}
+                            <img class="img-fluid rounded" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}">
+                            {% endif %}
                         </td>
                         <td class="py-3">
                             <p class="my-0"><strong>{{ item.product.name }}</strong></p>
