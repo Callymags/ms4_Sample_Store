@@ -230,32 +230,33 @@ footer {
 
 
 /* -------------------EDIT PRODUCT--------------------- */
-.btn-file {
-    position: relative;
-    overflow: hidden;
+#div_id_image_back {
+    margin-top: 2rem;
 }
 
-.btn-file input[type="file"] {
-    position: absolute;
-    top: 0;
-    right: 0;
-    min-width: 100%;
-    min-height: 100%;
-    opacity: 0;
-    cursor: pointer;
+#div_id_image_front a {
+    color: #F05454;
 }
 
-.custom-checkbox .custom-control-label::before {
-    border-radius: 0;
-    border-color: #dc3545;
+#div_id_image_front a:hover {
+    color: #dd6c77;
 }
 
-.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
-    background-color: #dc3545;
-    border-color: #dc3545;
-    border-radius: 0;
+#div_id_image_back a {
+    color: #F05454;
 }
 
+#div_id_image_back a:hover {
+    color: #dd6c77;
+}
+
+#div_id_image_front input {
+    margin-left: 0.7rem;
+}
+
+#div_id_image_back input {
+    margin-left: 0.7rem;
+}
 /* -------------------TOASTS--------------------- */
 .toast-container {
     z-index: 99999999999;
