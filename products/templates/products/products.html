@@ -76,8 +76,8 @@
                                         {% endif %}
                                         {% if request.user.is_superuser %}
                                             <small class="ms-3">
-                                                <a class="link-style" href="{% url 'edit_product' product.id %}">Edit</a> | 
-                                                <a class="link-style" data-bs-target='#deleteProductModal{{ product.id }}' data-bs-toggle="modal">Delete</a>
+                                                <a type="button" class="btn btn-link btn-sm link-style" href="{% url 'edit_product' product.id %}">Edit</a> | 
+                                                <a type="button" class="btn btn-link btn-sm link-style" data-bs-target='#deleteProductModal{{ product.id }}' data-bs-toggle="modal">Delete</a>
                                             </small>
                                             <div class="modal fade" id="deleteProductModal{{ product.id }}" tabindex="-1" aria-labelledby="deleteProductModalLabel"
                                             aria-hidden="true">
