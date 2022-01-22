@@ -104,6 +104,10 @@ footer {
     }   
 }
 
+#subscribersForm > #div_id_email .form-control:focus {
+    box-shadow: none
+}
+
 /* -------------------HOMEPAGE--------------------- */
 
 .hero-image-container {
