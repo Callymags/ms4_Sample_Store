@@ -136,14 +136,15 @@
   <footer>
     <div class="container mt-3 mb-3">
       <div class="row">
-        <div class="col-sm-12 col-md-4 text-center footer-mobile-margin">
+        <!-- <div class="col-sm-12 col-md-4 text-center footer-mobile-margin">
           <p>Sign up to receive our weekly newsletter</p> 
-          <div class="input-group">
-            <input type="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="email-sub-addon">
-            <span class="input-group-text" id="email-sub-addon"><button type="submit" class="btn button-style">Subscribe</button></span>
-          </div>
+          <form id="subscribersForm" class="w-75" action="{% url 'home' %}" method="POST">
+            {% csrf_token %}
+            {{ subscribers_form|crispy }}
+            <input type="submit" class="btn button-style" value="Subscribe" aria-label="Submit">
+          </form>
         </div>
-        <hr class="d-md-none mt-3 w-50 divider-style offset-3">
+        <hr class="d-md-none mt-3 w-50 divider-style offset-3"> -->
         <div class="col-sm-12 col-md-4 text-center footer-mobile-margin">
           <h3>Follow us:</h3>
             <a class="social-link" target="_blank" href="#">
