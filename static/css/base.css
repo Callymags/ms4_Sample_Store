@@ -330,7 +330,12 @@ footer {
     margin-bottom: 1rem;
 }
 
-
+/* -------------------BLOG PAGE--------------------- */
+/* .card-img-top {
+    height: 10rem;
+    object-fit: cover;
+} */
+/* -------------------EDIT POST PAGE--------------------- */
 
 #edit-post-form a {
     color: #F05454;
