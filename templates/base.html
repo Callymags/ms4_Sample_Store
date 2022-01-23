@@ -138,7 +138,7 @@
       <div class="row">
         <div class="col-sm-12 col-md-4 text-center footer-mobile-margin">
           <p>Sign up to receive our weekly newsletter</p> 
-          <form id="subscribersForm" class="w-75" action="{% url 'home' %}" method="POST">
+          <form id="subscribersForm" class="w-75 d-inline" action="{% url 'home' %}" method="POST">
             {% csrf_token %}
             {{ newsletter_form|crispy }}
             <input type="submit" class="btn button-style" value="Subscribe" aria-label="Submit">
