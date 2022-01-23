@@ -22,9 +22,7 @@ def post(request, slug):
 
     context = {
         'post': post,
-        'form': form,
         'on_blog_post_page': True,
-
     }
     return render(request, 'blog/post.html', context)
 
@@ -68,3 +66,39 @@ def add_post(request):
     }
 
     return render(request, template, context)
+
+
+@login_required
+def edit_post(request, slug):
+    """ View to edit a blog post """
+    post = Post.objects.get(slug=slug)
+    slugs = list(Post.objects.all().values_list('slug', flat=True))
+    slugs.remove(post.slug)
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, you do not have permission to \
+            edit a blog post.')
+        return redirect(reverse('blog'))
+
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES, instance=post)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.slug = slugify(post.title)
+            if post.slug in slugs:
+                messages.error(request, 'A blog post with that title \
+                    already exists, please enter a different title.')
+            else:
+                post.save()
+                form.save_m2m()
+                messages.success(request, f'Blog post "{post.title}" \
+                             successfully updated!')
+                return redirect(reverse('post', args=[post.slug]))
+        else:
+            messages.error(request, 'Failed to update blog post. \
+                           Please ensure the form is valid.')
+    else:
+        form = PostForm(instance=post)
+        messages.info(request, f'You are editing the blog post "{post.title}"')
+    context = {'post': post, 'form': form}
+
+    return render(request, 'blog/edit_post.html', context)

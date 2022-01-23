@@ -329,3 +329,13 @@ footer {
 .form-control {
     margin-bottom: 1rem;
 }
+
+
+
+#edit-post-form a {
+    color: #F05454;
+}
+
+#edit-post-form a:hover {
+    color: #dd6c77;
+}

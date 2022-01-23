@@ -7,7 +7,6 @@ class Post(models.Model):
     intro = models.TextField(max_length=254)
     body = models.TextField(validators=[MinLengthValidator(15)])
     date = models.DateTimeField(auto_now_add=True)
-    image_url = models.URLField(max_length=1024, blank=True, null=True)
     image = models.ImageField(null=True, blank=True)
     author = models.CharField(null=True, blank=True, max_length=254)
 

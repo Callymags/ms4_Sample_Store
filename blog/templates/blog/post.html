@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container mb-2">
+    <div class="row">
+        <div class="col text-center mt-4">
+            <h2 class="heading small-heading">{{ post.title }}</h2>
+            <hr class="divider-style w-50 ms-auto me-auto">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <!-- Blog post details -->
+            <div id="blog-details" class="col-12 col-md-8 offset-md-2">
+                {% if post.image %}
+                <img class="card-img-top img-fluid" src="{{ post.image.url }}" alt="{{ post.title }}">
+                {% endif %}
+                <!-- Edit blog post button -->
+                {% if request.user.is_superuser %}
+                <a class="btn btn-link link-style mt-2" href="{% url 'edit_post' post.slug %}">
+                Edit Post
+                </a>
+                {% endif %}
+                <p class="mt-2"><small>By {{post.author }} - {{ post.date }}</small></p>
+                <p><strong> {{ post.intro }}</strong></p>
+                <p>{{ post.body | linebreaks }}</p>
+                <a class="btn button-secondary-style" href="{% url 'blog' %}">
+                    <i class="fas fa-arrow-alt-circle-left me-2"></i>Back
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

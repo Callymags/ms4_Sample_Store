@@ -6,6 +6,7 @@
     <div class="row">
         <div class="col text-center mt-4">
             <h2 class="">Add Blog Post</h2>
+            <hr class="divider-style w-50 ms-auto me-auto">
         </div>
     </div>
 
@@ -20,7 +21,7 @@
                 {{ field }}
                 {% endif %}
                 {% endfor %}
-                <div class="text-right">
+                <div class="text-end">
                     <a class="btn button-secondary-style" href="{% url 'blog' %}">Cancel</a>
                     <button class="btn button-style" type="submit">Add Post</button>
                 </div>
