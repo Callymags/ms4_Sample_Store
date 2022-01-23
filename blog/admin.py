@@ -1,5 +1,5 @@
 from django.contrib import admin
-from . models import Post, Tag
+from . models import Post
 
 
 class PostAdmin(admin.ModelAdmin):
@@ -13,3 +13,6 @@ class PostAdmin(admin.ModelAdmin):
     )
 
     list_filter = ('date',)
+
+
+admin.site.register(Post, PostAdmin)
