@@ -7,11 +7,3 @@ class Subscribers(models.Model):
 
     def __str__(self):
         return self.email
-
-
-class MailMessage(models.Model):
-    title = models.CharField(max_length=100, null=True)
-    message = models.TextField()
-
-    def __str__(self):
-        return self.title

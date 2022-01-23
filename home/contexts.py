@@ -2,6 +2,9 @@ from django.contrib import messages
 
 from .forms import NewsletterForm
 from .models import Subscribers
+from django.core.mail import send_mail
+from django.conf import settings
+
 
 
 def newsletter(request):
@@ -17,11 +20,17 @@ def newsletter(request):
                 messages.error(request,
                                'Sorry, that email already exists in our list')
             else:
-                newsletter_form.save()
-                newsletter_form = NewsletterForm()
+                instance.save()
                 messages.success(request,
                                  'Thank you for subscribing \
                                  to our newsletter')
+                sender_email = instance.email
+                send_mail(
+                    'Thank you for subscribing to this newsletter!',
+                    'I hope you enjoyed browsing the products on our store.',
+                    settings.DEFAULT_FROM_EMAIL,
+                    [sender_email],
+                )
     else:
         newsletter_form = NewsletterForm()
 
