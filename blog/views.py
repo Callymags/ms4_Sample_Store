@@ -2,8 +2,8 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.utils.text import slugify
 from django.contrib import messages
 
-from .models import Post
-from .forms import PostForm
+from .models import Post, Comment
+from .forms import PostForm, CommentForm
 from django.contrib.auth.decorators import login_required
 
 
@@ -19,9 +19,24 @@ def blog(request):
 def post(request, slug):
     """ View for displaying and editing individual blog posts """
     post = Post.objects.get(slug=slug)
+    comments = post.comments.all().order_by('-id')
+
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.post = post
+            comment.save()
+            messages.success(request, 'Comment successfully added!')
+            return redirect('post', slug=post.slug)
+    else:
+        form = CommentForm()
 
     context = {
         'post': post,
+        'comments': comments,
+        'form': form,
         'on_blog_post_page': True,
     }
     return render(request, 'blog/post.html', context)

@@ -8,7 +8,7 @@
             <h2 class="">MMA Cork Blog</h2>
             <!-- Add blog post button -->
             {% if request.user.is_superuser %}
-            <a class="btn button-style mb-2" href="{% url 'add_post' %}">Add Blog Post</a>
+            <a class="btn button-style mt-2 mb-2" href="{% url 'add_post' %}">Add Blog Post</a>
             {% endif %}
             <hr class="divider-style w-50 ms-auto me-auto">
         </div>

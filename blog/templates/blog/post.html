@@ -51,5 +51,43 @@
             </div>
         </div>
     </div>
+    <!-- Comments -->
+    <section>
+        <div class="col-12 col-md-8 offset-md-2">
+            <div class="row">
+                <div class="col text-center mt-4">
+                    <h3 class="">Comments</h3>
+                    <hr class="divider-style w-50 ms-auto me-auto">
+                </div>
+            </div>
+            {% for comment in comments %}
+            <p>
+                <strong>{{ comment.name }}</strong> <small>{{ comment.date }}</small><br>
+                {{ comment.body }}
+            </p>
+            <!-- No hr element after last comment -->
+            {% if not forloop.last %}
+            <hr>
+            {% endif %}
+            {% empty %}
+            <p class="text-center">No comments yet!</p>
+            {% endfor %}
+        </div>
+    </section>
+    <!-- Leave a Comment -->
+    <section>
+        <div class="col-12 col-md-8 offset-md-2">
+            <div class="row">
+                <div class="col text-center mt-4">
+                    <h3 class="heading small-heading">Leave a Comment</h3>
+                </div>
+            </div>
+            <form action="{% url 'post' post.slug %}" method="POST">
+                {% csrf_token %}
+                {{ form | crispy }}
+                <button class="btn button-style mb-5">Post Comment</button>
+            </form>
+        </div>
+    </section>
 </div>
 {% endblock %}
