@@ -102,3 +102,18 @@ def edit_post(request, slug):
     context = {'post': post, 'form': form}
 
     return render(request, 'blog/edit_post.html', context)
+
+@login_required
+def delete_post(request, post_id):
+    """ View to delete a blog post """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, you do not have permission to \
+            delete a blog post.')
+        return redirect(reverse('blog'))
+
+    post = get_object_or_404(Post, pk=post_id)
+    post.delete()
+    messages.success(request, f'Blog post "{post.title}" \
+                     has been deleted.')
+
+    return redirect(reverse('blog'))
