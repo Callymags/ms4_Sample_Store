@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col text-center mt-4">
+            <h2 class="heading big-heading">MMA Cork Blog</h2>
+            <!-- Add blog post button -->
+            {% if request.user.is_superuser %}
+            <a class="btn button-style mb-4" href="{% url 'add_post' %}">Add Blog Post</a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="row mt-3">
+        {% for post in posts %}
+        <!-- Blog post image -->
+        <div class="col-12 col-md-4 col-lg-4 offset-md-1 offset-lg-2">
+            <div class="image-container mb-4">
+                {% if post.image %}
+                <a href="{% url 'post' post.slug %}">
+                    <img class="card-img-top img-fluid img-blog" src="{{ post.image.url }}" alt="{{ post.title }}">
+                </a>
+                {% else %}
+                <a href="{% url 'post' post.slug %}">
+                    <img class="card-img-top img-fluid img-blog" src="{{ MEDIA_URL }}no-image.png"
+                        alt="{{ post.title }}">
+                </a>
+                {% endif %}
+            </div>
+        </div>
+        <!-- Blog post title and intro -->
+        <div class="col-12 col-md-6 col-lg-4">
+            <h2>{{ post.title }}</h2>
+            <small>By {{ post.author }} - {{ post.date }}</small>
+            <p>{{ post.intro }}<a href="{% url 'post' post.slug %}">...read more</a></p>
+        </div>
+        {% if not forloop.last %}
+        <div class="w-75 mx-auto mb-4">
+            <hr>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
