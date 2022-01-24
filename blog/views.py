@@ -132,3 +132,19 @@ def delete_post(request, post_id):
                      has been deleted.')
 
     return redirect(reverse('blog'))
+
+
+@login_required
+def delete_comment(request, comment_id):
+    """ Delete a comment from a blog post if superuser """
+
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, you do not have permssion \
+            to delete a comment.')
+        return redirect(reverse('blog'))
+
+    comment = get_object_or_404(Comment, pk=comment_id)
+    comment.delete()
+    messages.success(request, 'Comment successfully deleted.')
+
+    return redirect(reverse('blog'))

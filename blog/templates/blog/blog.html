@@ -58,6 +58,7 @@
                                 </div>
                             </div>
                         </div>
+                        {% endif %}
                         <!-- Blog post title and intro -->
                         <h2>{{ post.title }}</h2>
                         <small>By {{ post.author }} - {{ post.date }}</small>
@@ -65,7 +66,6 @@
                             <a class="btn btn-sm button-style ms-2" href="{% url 'post' post.slug %}">View Post</a>
                         </div>
                     </div>
-                    {% endif %}
                 </div>
             </div>
             {% endfor %}

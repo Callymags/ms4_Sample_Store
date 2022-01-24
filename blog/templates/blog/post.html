@@ -62,6 +62,32 @@
                 <strong>{{ comment.name }}</strong> <small>{{ comment.date }}</small><br>
                 {{ comment.body }}
             </p>
+            {% if request.user.is_superuser %}
+                <!-- Button trigger delete comment modal -->
+                <button type="button" class="btn btn-link link-style" data-bs-toggle="modal" 
+                 data-bs-target="#deleteCommentModal{{ comment.id }}">
+                 Delete Comment
+                </button>
+                <!-- Modal -->
+                <div class="modal fade" id="deleteCommentModal{{ comment.id }}" tabindex="-1" aria-labelledby="deleteCommentModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="deleteCommentModalLabel">Delete Comment</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                            <p>Are you sure you want to delete this Comment?</p>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn button-secondary-style" data-bs-dismiss="modal">Close</button>
+                            <a type="button" href="{% url 'delete_comment' comment.id %}" class="btn button-style">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
             <!-- No hr element after last comment -->
             {% if not forloop.last %}
             <hr>
