@@ -137,6 +137,11 @@ footer {
     background-color: #FCFCFC;
 }
 
+.product-image  {
+    height: 17rem;
+    object-fit: cover;
+}
+
 .category-tags {
     text-decoration: none;
 }
