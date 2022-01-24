@@ -17,10 +17,10 @@
                     </div>
                     <div class="carousel-inner">
                         <div class="carousel-item active" data-bs-interval="5000">
-                            <img src="{{ product.image_front.url }}" class="d-block w-100" alt="...">
+                            <img src="{{ product.image_front.url }}" class="d-block img-fluid" alt="...">
                         </div>
                         <div class="carousel-item" data-bs-interval="5000">
-                            <img src="{{ product.image_back.url }}" class="d-block w-100" alt="...">
+                            <img src="{{ product.image_back.url }}" class="d-block img-fluid" alt="...">
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#productDetailsCarousel"
@@ -36,13 +36,13 @@
                 </div>
                 {% else %}
                 <a href="">
-                    <img class="card-img-top product-image img-fluid" src="{{ product.image_front.url }}"
+                    <img class="card-img-top img-fluid" src="{{ product.image_front.url }}"
                         alt="{{ product.name }}">
                 </a>
                 {% endif %}
                 {% else %}
                 <a href="{% url 'product_detail' product.id %}">
-                    <img class="card-img-top product-image img-fluid" src="{{ MEDIA_URL }}no-camera.png"
+                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}no-camera.png"
                         alt="{{ product.name }}">
                 </a>
                 {% endif %}
