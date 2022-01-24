@@ -52,3 +52,19 @@ My personal goals for this project are as follows:
 As a developer, I want to: 
 1. Develop a deeper understanding of JavaScript, Python, and the Django framework by creating an original project.
 2. Create a professional looking project that I will be proud to put in my portfolio.
+
+## Features 
+### Colour Palette
+The four main colours I chose for the website are displayed in hex format below. They were chosen after using the gym’s logo as a reference point for the site colours.
+
+* White #F5F5F5: Used for the navbar and the footer background colour
+* White #FCFCFC: Used for the body background colour
+* Red #F05454: Used for the website buttons and links, and the buttons on the website 
+* Black ##121212: Used for the majority of the font colours on the site. 
+
+ 
+### Fonts
+I used two different fonts for this website
+* ['Oxygen', sans-serif:]( https://fonts.google.com/specimen/Oxygen) Used for the website headings
+* ['Noto Serif', serif:]( https://fonts.google.com/?query=work+sans) Used for all other font elements of the website. 
+
