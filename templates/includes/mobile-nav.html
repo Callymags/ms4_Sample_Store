@@ -1,6 +1,6 @@
 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
     <div class="offcanvas-header">
-        <a class="" href="">
+        <a class="" href="{% url 'home' %}">
             <img src="{{ MEDIA_URL }}logo.png" alt="" width="80" height="80">
         </a>
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -12,7 +12,7 @@
                     <div class="input-group">
                         <input type="text" class="form-control w-75" name="q" placeholder="Search" aria-label="Search"
                             aria-describedby="search-icon-addon">
-                        <button class="btn btn-large" type="submit">
+                        <button class="btn btn-large mb-3" type="submit">
                             <span class="input-group-text" id="search-icon-addon"><i
                                     class="fas fa-search icon-style"></i></span>
                         </button>

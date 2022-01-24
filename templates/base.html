@@ -43,7 +43,7 @@
   <header class="container-fluid static-top">
     <div id="topnav" class="row navbar-light pt-lg-2 d-none d-lg-flex">
       <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
-        <a href="">
+        <a href="{% url 'home' %}">
           <img class="logo-style" src="{{ MEDIA_URL }}logo.png" alt="" width="80" height="80">
         </a>
       </div>
@@ -51,7 +51,7 @@
         <form method="GET" action="{% url 'products' %}" class="d-none d-lg-flex justify-content-center">
           <div class="input-group rounded-pill">
             <input type="text" class="form-control w-75" name="q" placeholder="Search" aria-label="Search" aria-describedby="search-icon-addon">
-            <button class="btn btn-large" type="submit">
+            <button class="btn btn-large mb-3" type="submit">
               <span class="input-group-text" id="search-icon-addon"><i class="fas fa-search icon-style"></i></span>
             </button>
           </div>

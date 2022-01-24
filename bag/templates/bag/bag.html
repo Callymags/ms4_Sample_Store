@@ -189,13 +189,18 @@
                 </table>
             </div>
             {% else %}
-            <p class="">Your bag is empty</p>
-            <a href="{% url 'products' %}" class="btn button-style">
-                <span>
-                    <i class="fas fa-chevron-left"></i>
-                </span>
-                <span>Keep Shopping</span>
-            </a>
+            <div class="row text-center">
+                <div class="col">
+                    <p class="">Your bag is empty</p>
+                    <img src="{{ MEDIA_URL }}shopping-bag.png" class="img-fluid" alt="">
+                    <a href="{% url 'products' %}" class="btn button-style">
+                        <span>
+                            <i class="fas fa-chevron-left"></i>
+                        </span>
+                        <span>Keep Shopping</span>
+                    </a>
+                </div>
+            </div>
             {% endif %}
         </div>
     </div>
