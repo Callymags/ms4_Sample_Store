@@ -52,6 +52,11 @@
                                     <img class="card-img-top product-image img-fluid" src="{{ MEDIA_URL }}no-camera.png"
                                         alt="{{ product.name }}">
                                 </a>
+                                <a href="{% url 'product_detail' product.id %}" class="unstyled d-none d-lg-block d-xl-block">
+                                    <div class="overlay my-auto d-none d-lg-block d-xl-block text-center">
+                                        <p class="content-text">{{ product.description }}</p>
+                                    </div>
+                                </a>
                                 {% endif %}
                             </div>
                             <div class="card-body pb-0 text-center">
