@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-m*hz!a029!&2&i9*hk@$rm@at1&b_j4za79ng)(-*@%y5j1)mv
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['callymags-sample-store', 'localhost']
+ALLOWED_HOSTS = ['callymags-sample-store.herokuapp.com', 'localhost']
 
 
 # Application definition
