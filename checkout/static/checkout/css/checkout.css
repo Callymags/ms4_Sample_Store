@@ -51,3 +51,11 @@ select option[value=""] {
     margin: 0;
     height: 100%;
 }
+
+.link-style {
+  color: #F05454;
+}
+
+.link-style:hover {
+  color: #dd6c77;
+}

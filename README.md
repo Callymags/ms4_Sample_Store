@@ -53,6 +53,22 @@ As a developer, I want to:
 1. Develop a deeper understanding of JavaScript, Python, and the Django framework by creating an original project.
 2. Create a professional looking project that I will be proud to put in my portfolio.
 
+### Wireframes 
+I used Balsamiq wireframes create a basic visual of how the main pages of the site would look on desktop  and mobile devices.
+
+You can view the wireframes below.
+
+* [Landing Page](media/landing-page.png)
+* [Products Page](media/products-page.png)
+* [Product Details](media/product-details.png)
+* [Shopping Bag](media/bag.png)
+* [Secure Checkout](media/secure-checkout.png)
+* [Blog](media/blog.png)
+* [Blog Details](media/blog-details.png)
+
+It is important to note that I did not do a wireframe for certain pages as a result of the deadline date for this project. 
+
+
 ## Features 
 ### Colour Palette
 The four main colours I chose for the website are displayed in hex format below. They were chosen after using the gym’s logo as a reference point for the site colours.
@@ -62,7 +78,6 @@ The four main colours I chose for the website are displayed in hex format below.
 * Red #F05454: Used for the website buttons and links, and the buttons on the website 
 * Black ##121212: Used for the majority of the font colours on the site. 
 
- 
 ### Fonts
 I used two different fonts for this website
 * ['Oxygen', sans-serif:]( https://fonts.google.com/specimen/Oxygen) Used for the website headings
