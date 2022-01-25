@@ -276,6 +276,10 @@ footer {
 }
 
 /* -------------------CHECKOUT--------------------- */
+.form-check-input {
+    margin-top: 0.7rem;
+}
+
 .form-check-input:checked {
     background-color: #f05454;
     border-color: #f05454;
@@ -330,11 +334,6 @@ footer {
     margin-bottom: 1rem;
 }
 
-/* -------------------BLOG PAGE--------------------- */
-/* .card-img-top {
-    height: 10rem;
-    object-fit: cover;
-} */
 /* -------------------EDIT POST PAGE--------------------- */
 
 #edit-post-form a {
