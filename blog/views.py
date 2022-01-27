@@ -118,6 +118,7 @@ def edit_post(request, slug):
 
     return render(request, 'blog/edit_post.html', context)
 
+
 @login_required
 def delete_post(request, post_id):
     """ View to delete a blog post """

@@ -22,3 +22,9 @@
 </form>
 
 {% endblock %}
+
+{% block postloadjs %}
+<script type="text/javascript">
+  $("#subscribersForm .emailinput").removeClass("is-invalid")
+</script>
+{% endblock %}

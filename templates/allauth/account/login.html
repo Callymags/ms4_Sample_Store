@@ -46,5 +46,11 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
     <a class="button secondaryAction link-style" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
   </p>
 </form>
-
 {% endblock %}
+
+{% block postloadjs %}
+<script type="text/javascript">
+    $("#subscribersForm .emailinput").removeClass("is-invalid")
+</script>
+{% endblock %}
+
