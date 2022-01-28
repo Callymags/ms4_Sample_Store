@@ -33,8 +33,10 @@ class Migration(migrations.Migration):
                 ('date', models.DateTimeField(auto_now_add=True)),
                 ('image_url', models.URLField(blank=True,
                  max_length=1024, null=True)),
-                ('image', models.ImageField(blank=True, null=True, upload_to='')),
-                ('author', models.CharField(blank=True, max_length=254, null=True)),
+                ('image', models.ImageField(
+                    blank=True, null=True, upload_to='')),
+                ('author', models.CharField(
+                    blank=True, max_length=254, null=True)),
                 ('tags', models.ManyToManyField(blank=True, to='blog.Tag')),
             ],
             options={

@@ -23,11 +23,11 @@
                     <div class="image-container mb-4">
                         {% if post.image %}
                         <a href="{% url 'post' post.slug %}">
-                            <img class="card-img-top img-fluid" src="{{ post.image.url }}" alt="{{ post.title }}">
+                            <img class="card-img-top blog-img img-fluid" src="{{ post.image.url }}" alt="{{ post.title }}">
                         </a>
                         {% else %}
                         <a href="{% url 'post' post.slug %}">
-                            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}no-camera.png"
+                            <img class="card-img-top blog-img img-fluid" src="{{ MEDIA_URL }}no-camera.png"
                                 alt="{{ post.title }}">
                         </a>
                         {% endif %}

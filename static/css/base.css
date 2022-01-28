@@ -336,6 +336,11 @@ footer {
 
 /* -------------------EDIT POST PAGE--------------------- */
 
+.blog-img  {
+    height: 17rem;
+    object-fit: cover;
+}
+
 #edit-post-form a {
     color: #F05454;
 }
