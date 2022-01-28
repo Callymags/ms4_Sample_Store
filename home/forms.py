@@ -1,6 +1,7 @@
 from django import forms
 from .models import Subscribers
 
+
 class NewsletterForm(forms.ModelForm):
     class Meta:
         model = Subscribers
@@ -16,4 +17,3 @@ class NewsletterForm(forms.ModelForm):
             placeholder = placeholders[field]
             self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].label = False
-

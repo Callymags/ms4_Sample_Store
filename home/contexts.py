@@ -6,7 +6,6 @@ from django.core.mail import send_mail
 from django.conf import settings
 
 
-
 def newsletter(request):
     """
     A view to allow the user to subscribe to the newsletter

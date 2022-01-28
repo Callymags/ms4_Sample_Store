@@ -28,9 +28,11 @@ class Migration(migrations.Migration):
                 ('title', models.CharField(max_length=254)),
                 ('slug', models.SlugField(unique=True)),
                 ('intro', models.TextField(max_length=254)),
-                ('body', models.TextField(validators=[django.core.validators.MinLengthValidator(15)])),
+                ('body', models.TextField(validators=[
+                    django.core.validators.MinLengthValidator(15)])),
                 ('date', models.DateTimeField(auto_now_add=True)),
-                ('image_url', models.URLField(blank=True, max_length=1024, null=True)),
+                ('image_url', models.URLField(blank=True,
+                 max_length=1024, null=True)),
                 ('image', models.ImageField(blank=True, null=True, upload_to='')),
                 ('author', models.CharField(blank=True, max_length=254, null=True)),
                 ('tags', models.ManyToManyField(blank=True, to='blog.Tag')),
