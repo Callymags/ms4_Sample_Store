@@ -33,7 +33,7 @@
                         {% endif %}
                     </div>
                     <div class="card-body">
-                        <!-- Edit blog post button -->
+                        <!-- Edit  and Delete blog post buttons -->
                         {% if request.user.is_superuser %}
                         <small class="mt-3">
                             <a class="btn btn-link link-style" href="{% url 'edit_post' post.slug %}">Edit Post</a> | 
@@ -61,7 +61,7 @@
                         {% endif %}
                         <!-- Blog post title and intro -->
                         <h2>{{ post.title }}</h2>
-                        <small>By {{ post.author }} - {{ post.date }}</small>
+                        <small>By {{ post.author }}</small>
                         <div class="text-end mt-3">
                             <a class="btn btn-sm button-style ms-2" href="{% url 'post' post.slug %}">View Post</a>
                         </div>
