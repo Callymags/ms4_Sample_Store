@@ -150,6 +150,9 @@
 {% endblock %}
 
 {% block postloadjs %}
+<script type="text/javascript">
+    $("#id_full_name, #id_phone_number, #id_street_address1, #id_town_or_city").attr("pattern", "\\S(.*\\S)?");
+</script>
     {{ block.super }}
     {{ stripe_public_key|json_script:"id_stripe_public_key" }}
     {{ client_secret|json_script:"id_client_secret" }}
