@@ -71,6 +71,7 @@
 {% block postloadjs %}
 <script type="text/javascript">
     $("#subscribersForm .emailinput").removeClass("is-invalid")
+    $("#id_full_name, #id_default_phone_number, #id_default_street_address1, #id_default_street_address2, #id_default_town_or_city, #id_default_county, #id_default_postcode").attr("pattern", "\\S(.*\\S)?");
 </script>
     {{ block.super }}
     <script type="text/javascript" src="{% static 'profiles/js/countryfield.js' %}"></script>

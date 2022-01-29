@@ -147,7 +147,7 @@
           <form id="subscribersForm" class="w-75 d-inline" action="{% url 'home' %}" method="POST">
             {% csrf_token %}
             {{ newsletter_form|crispy }}
-            <input type="submit" class="btn button-style" value="Subscribe" aria-label="Submit">
+            <input type="submit" class="btn button-style subscribe-button" value="Subscribe" aria-label="Submit">
           </form>
         </div>
         <hr class="d-md-none mt-3 w-50 divider-style offset-3">

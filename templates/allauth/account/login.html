@@ -51,6 +51,12 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
 {% block postloadjs %}
 <script type="text/javascript">
     $("#subscribersForm .emailinput").removeClass("is-invalid")
+    $("#subscribersForm").submit(function(e){
+        e.preventDefault();
+        $(".subscribe-button").on("click", function() {
+          $("#subscribersForm").submit();
+        });
+    });
 </script>
 {% endblock %}
 

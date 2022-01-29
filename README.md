@@ -173,10 +173,10 @@ plug in was used to handle authentication, registration and general account mana
 * [Python](https://en.wikipedia.org/wiki/Python_(programming_language)) 
 
 ### Frameworks
-* [jQuery:](https://jquery.com/): Used for different style effects and functionality throughout the site.
+* [jQuery:](https://jquery.com/) Used for different style effects and functionality throughout the site.
 * [Bootstrap 5.01:](https://getbootstrap.com/) Used to style the website and help with the website’s responsiveness. 
 * [Google Developer Tools:](https://developer.chrome.com/docs/devtools/) Used to test responsive elements of page and to fix bugs.
-* [Git:](https://git-scm.com/)Useful to control and document page versions through git commits and git pushes.
+* [Git:](https://git-scm.com/) Useful to control and document page versions through git commits and git pushes.
 * [Github:](https://github.com/) Used to store project code and to deploy the website.
 * [AWS S3:]( https://aws.amazon.com/s3/) Used to store the static data for the live website. These include product images, blog images and js and css files
 * [Django:]( https://www.djangoproject.com/) Used in site development to handle user data and python queries to database. 
@@ -206,7 +206,7 @@ plug in was used to handle authentication, registration and general account mana
 ### Footer 
 - Links working from each page. - PASS
 - Newsletter sends email to user email if inputted – PASS
-- Newsletter doesn’t accept sane email twice – PASS
+- Newsletter doesn’t accept same email twice – PASS
 
 ### Landing Page
 * Visit store link working on all screen sizes – PASS
@@ -221,12 +221,12 @@ plug in was used to handle authentication, registration and general account mana
 * Edit/Delete links on product cards working for admin user – PASS
 
 ### Product Details
-* Carousel displaying front and back images functioning correctly - PASS
+* Carousel front and back images functioning correctly - PASS
 * Product info displaying correctly – PASS
 * Quantity input bar does not go below 1 or above 99 – FAIL
 * Size dropdown functioning correctly – PASS
-* Edit/Delete links working for admin users
-* Edit/Delete links not visible to regular users
+* Edit/Delete links working for admin users - PASS
+* Edit/Delete links not visible to regular users - PASS
 * Edit/Delete functionality unavailable to user if correct URL inputted – PASS
 * Add to Bag and Keep Shopping button links functioning - PASS
 
@@ -248,7 +248,7 @@ plug in was used to handle authentication, registration and general account mana
 
 ### Blog
 * Blog info (image, title, update info) displaying correctly – PASS
-* Comments displaying under Blog post
+* Comments displaying under Blog post - PASS
 * Comments display username, date/time the comment was uploaded – PASS
 * User can upload comment using form below comment field – PASS
 * Admin able to add blog post from site - PASS
@@ -273,6 +273,7 @@ plug in was used to handle authentication, registration and general account mana
 * Profile displaying Delivery info form – PASS
 * Profile does not display order history table if there is no order history – PASS
 * Profile saves delivery info for use in checkout page – PASS
+* Profile info does not accept white space as a value - PASS
 * User can view previous order history in order history section – PASS
 * Order number link brings user to page with order details – PASS
 
@@ -280,8 +281,8 @@ plug in was used to handle authentication, registration and general account mana
 
 <details>
 <summary><b>User Stories</b> - (click to expand)</summary>
-#### Regular User
 
+#### Regular User
 As a regular user, I want: 
 1. A visually appealing site no matter what device I use.
 * Bootstrap styling makes the site responsive and appealing at all screen sizes. 
@@ -333,6 +334,7 @@ As a software developer/recruiter, I want:
 2. To view the developer’s GitHub repository for the project so I can look at their code.
 * Link to the project’s GitHub repository in the footer of the website 
 3. The ability to examine the creator’s ReadMe for more details on how the project was created.
+* Link to the project’s GitHub repository in the footer of the website 
 4. View the site and play around with its features e.g fake purchases
 * Live site deployed to Heroku and sample card provided to users in at the top of the project ReadMe. This will allow users to view the site, comment on blog posts and make fake purchases.
 
