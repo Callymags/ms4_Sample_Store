@@ -162,5 +162,216 @@ plug in was used to handle authentication, registration and general account mana
 ### Future Features
 * Discount Feature: A discount feature that targets specific categories of products depending on the season.
 * Pagination: Create pagination for the product and blog pages.
+* Reviews section where customers can leave reviews on the products. 
+* About section on the landing page
+
+## Technologies Used
+### Languages 
+* [HTML](https://en.wikipedia.org/wiki/HTML5) 
+* [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets) 
+* [JavaScript](https://www.javascript.com/) 
+* [Python](https://en.wikipedia.org/wiki/Python_(programming_language)) 
+
+### Frameworks
+* [jQuery:](https://jquery.com/): Used for different style effects and functionality throughout the site.
+* [Bootstrap 5.01:](https://getbootstrap.com/) Used to style the website and help with the website’s responsiveness. 
+* [Google Developer Tools:](https://developer.chrome.com/docs/devtools/) Used to test responsive elements of page and to fix bugs.
+* [Git:](https://git-scm.com/)Useful to control and document page versions through git commits and git pushes.
+* [Github:](https://github.com/) Used to store project code and to deploy the website.
+* [AWS S3:]( https://aws.amazon.com/s3/) Used to store the static data for the live website. These include product images, blog images and js and css files
+* [Django:]( https://www.djangoproject.com/) Used in site development to handle user data and python queries to database. 
+* [Heroku:]( https://www.heroku.com/) Used to deploy the live version of the site.
+* [Balsamiq:](https://balsamiq.com/) Used to draw up wireframes so I could visualise the design of the website.
+* [Windows Paint 3D:]( https://www.microsoft.com/en-us/p/paint-3d/9nblggh5fv99?activetab=pivot:overviewtab) Used to create a transparent PNGs of the Product images and MMA Cork logo.
+* [Color Hunt:]( https://colorhunt.co/) Used to find suitable background colours for styling.   
+* [Online-Convert.com:]( https://www.online-convert.com/) Used to convert MMA Cork logo to favicon format.
+
+### Libraries
+* [Django Allauth:](https://django-allauth.readthedocs.io/en/latest/installation.html) Used to set up user authentication on the site.
+* [Google fonts:](https://fonts.google.com/) Used to find appropriate fonts for the website
+* [Font Awesome:](https://fontawesome.com/icons?d=gallery&p=2) Provided the icons for the website buttons and the social media links in the footer. 
+*  [Flaticon](https://www.flaticon.com/):  Provided me with a images to display when there was no images on the product card, or when there was no items in the user’s shopping bag. [View here.] 
+
+
+## Manual Testing
+<details>
+<summary><b>Site Features</b> - (click to expand)</summary>
+
+### Navbar
+- Navbar links working from each page. - PASS
+- The main logo takes the user to the welcome page. - PASS
+- All navbar links and search icon functioning on off canvas navbar for smaller screens – PASS
+- Shopping bag icon displays correct bag total - PASS 
+
+### Footer 
+- Links working from each page. - PASS
+- Newsletter sends email to user email if inputted – PASS
+- Newsletter doesn’t accept sane email twice – PASS
+
+### Landing Page
+* Visit store link working on all screen sizes – PASS
+* Hero image displaying neatly on all screen sizes – PASS
+
+### Products Page
+* Correct product count on page – PASS
+* Sort filters working – PASS
+* Product cards displaying neatly on all screen sizes
+* Category links on cards working – PASS
+* Clicking on card image brings you to product details page – PASS
+* Edit/Delete links on product cards working for admin user – PASS
+
+### Product Details
+* Carousel displaying front and back images functioning correctly - PASS
+* Product info displaying correctly – PASS
+* Quantity input bar does not go below 1 or above 99 – FAIL
+* Size dropdown functioning correctly – PASS
+* Edit/Delete links working for admin users
+* Edit/Delete links not visible to regular users
+* Edit/Delete functionality unavailable to user if correct URL inputted – PASS
+* Add to Bag and Keep Shopping button links functioning - PASS
+
+### Allauth
+* Email confirmation required when signing up - PASS
+* User cannot log in if no account created - PASS
+* User cannot login with incorrect username/email/password - PASS
+* User cannot create account with email/username that’s already in use – PASS
+
+### Shopping Bag
+* Shopping bag displays correct product info (image, title, size, quantity) – PASS
+* Update quantity input working on mobile and larger screens – PASS
+* User cannot input number under 1 or over 99 in quantity input – FAIL
+* Subtotal on larger screen calculates correct price when quantity input updated – PASS
+* Remove item button working on small and large screens – PASS
+* Bag total calculates correct total for large and small screens - PASS
+* Empty shopping bag html displays when no items in bag – PASS
+* Secure checkout and Keep shopping buttons linking to correct pages – PASS
+
+### Blog
+* Blog info (image, title, update info) displaying correctly – PASS
+* Comments displaying under Blog post
+* Comments display username, date/time the comment was uploaded – PASS
+* User can upload comment using form below comment field – PASS
+* Admin able to add blog post from site - PASS
+* Admin able to edit existing blog posts - PASS
+* Admin able to delete existing blog posts - PASS
+* Regular user unable to create blog post - PASS
+* Regular user unable to edit blog post – PASS
+* Regular user unable to delete blog post – PASS
+
+### Checkout
+* Checkout form rendering correctly on large and small screens - PASS
+* Cannot complete order without inserting Full Name, Phone Number, Street Address 1, Town, Country, Card Number, Card Expiration Date, Card Postal Code - PASS
+* Required order fields do not accept white space – PASS
+* User’s previously saved info in profile already inputted into fields – PASS
+* Order Summary displaying correct info and correct total – PASS
+* Stripe receiving payment webhooks – PASS
+* Payment Success/Error messages displaying correctly – PASS
+* User directed to order summary - PASS  
+
+
+### Profile
+* Profile displaying Delivery info form – PASS
+* Profile does not display order history table if there is no order history – PASS
+* Profile saves delivery info for use in checkout page – PASS
+* User can view previous order history in order history section – PASS
+* Order number link brings user to page with order details – PASS
+
+</details>
+
+<details>
+<summary><b>User Stories</b> - (click to expand)</summary>
+#### Regular User
+
+As a regular user, I want: 
+1. A visually appealing site no matter what device I use.
+* Bootstrap styling makes the site responsive and appealing at all screen sizes. 
+2. To be able to intuitively navigate through the site the first time I visit.
+* Conventional structure of the site ensures that the user will intuitively know how to navigate through the page.
+3. The site’s purpose to be clear on the landing page
+* General sense of what the website is about. However, it does need an about section that explains the site’s purpose in more detail.
+4. The ability to log in and out of the site once I am registered to make future purchases easier.
+* Users can log in/out with ease and they can save their delivery information to their profile once registered. This will then be seen on the checkout page
+5. Access to my order history in my profile and delivery information.
+* Order history will display under the user’s delivery information on their profile.
+6. The ability to search for products on the site using keywords.
+* Search bar at the top of page will return results found in the product’s title, category, or description.
+7. To sort all available products based on price/name/category.
+* User can select the input on the products page which can sort the product by their name, rating, and price. The Product dropdown in the navbar sorts the products by their category.
+8. The ability to view more information on a certain product if I am interested in it.
+* User can click on the product image to take them to the product details page. From here the user can see the description of the product and add it to their bag.
+9. To view/leave reviews on a product.
+* This feature has not been implemented.
+10. To add items to a basket if I want to buy more than one product.
+* Add to basket option in product details page. From here the user can continue shopping and can select the link in the navbar to go to their basket when they are finished browsing.
+11. The ability to update items when they are in my basket.
+* User can update the product quantity or remove the item from their basket on the basket page.
+12. The ability to contact the gym if I need more information on products. 
+* Gym contact info in page footer 
+13. Receive confirmation that my purchase was successful upon checking out. 
+* User will see a notification pop up informing them of a successful/unsuccessful order. The user will then be directed to a page with their order details. They can also view these details in the order history section of their profile.
+
+#### Store Owner
+As a store owner, I want:
+1. To be able to easily add products to the store.
+* Product management section in account dropdown where admin can add products from live site.
+2. The ability to edit a product’s details e.g price/image etc.
+* Edit link in product/product details page that directs them to a form where the admin can edit the product details.
+3. To be able to delete products from my store that are no longer available/popular.
+* Delete link in products/product details page.
+4. The ability to add/edit blog posts, so that users know the story behind the gym and clothing.
+* Add Post button just under heading on blog page that directs admin to form to enter blog details.
+* Edit Post link under blog image on blog and post page. 
+5. The ability to delete blog posts.
+* Delete Post link under blog image on blog and post page
+6. The ability to delete product reviews if unsuitable.
+* Product reviews functionality not implemented.
+
+#### Software Developer/Recruiter
+As a software developer/recruiter, I want: 
+1. To view the developer’s Linked In profile
+* Link to my LinkedIn profile in the website footer
+2. To view the developer’s GitHub repository for the project so I can look at their code.
+* Link to the project’s GitHub repository in the footer of the website 
+3. The ability to examine the creator’s ReadMe for more details on how the project was created.
+4. View the site and play around with its features e.g fake purchases
+* Live site deployed to Heroku and sample card provided to users in at the top of the project ReadMe. This will allow users to view the site, comment on blog posts and make fake purchases.
+
+</details>
+
+<details>
+<summary><b>Responsive Design</b> - (click to expand)</summary>
+
+The website layout was tested on the following physical devices: 
+* Huawei P20 Lite (Google Chrome)
+* iPad (Safari)
+* Fujitsu Lifebook A512 (Google Chrome)
+* Hp L1906 (Google Chrome)
+
+Google Chrome Developer Tools was also used to test the responsiveness of the site using the following devices. 
+* Moto G4 
+* Galaxy S5
+* Pixel 2 
+* Pixel 2 XL
+* iPhone 5/SE
+* iPhone 6/7/8
+* iPhone 6/7/8 Plus
+* iPhone X
+* iPad
+* iPad Pro
+* Surface Duo
+* Galaxy Fold
+* Nest Hub
+* Nest Hub Max
+
+### Browser Compatibility
+Browser compatibility was physically tested across the different browsers listed below: 
+* Google Chrome Version 89.0.43389.114
+* Microsoft Edge Version 89.0.774.68
+* Mozilla Firefox Version 87.0
+
+No problems were found
+
+</details>
+
 
 
