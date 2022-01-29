@@ -17,61 +17,66 @@
             {% if bag_items %}
             <div class="d-block d-md-none">
                 {% for item in bag_items %}
-                    <div class="row text-center">
-                        <div class="col-12 col-sm-6 mb-3">
-                            {% if item.product.image_front %}
-                            <img class="img-fluid rounded" src="{{ item.product.image_front.url }}" alt="{{ item.product.name }}">
-                            {% else %}
-                            <img class="img-fluid rounded" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}">
-                            {% endif %}
-                        </div>
-                        <div class="col-12 col-sm-6 content-text my-auto">
-                            <p class="my-0"><strong>{{ item.product.name }}</strong></p>
-                            <p class="my-0"><strong>Size:
-                                </strong>{% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}
-                            </p>
-                        </div>
-                        <div class="col-12 col-sm-6 content-text">
-                            <p class="my-0">€{{ item.product.price }}</p>
-                        </div>
-                        <div class="col-12 col-sm-6 px-5 mt-2">
-                            <form class="form update-form" method="POST" action="{% url 'adjust_bag' item.item_id %}">
-                                {% csrf_token %}
-                                <div class="form-group">
-                                    <div class="input-group input-group-{{ item.item_id }}">
-                                        <div class="input-group-prepend">
-                                            <button class="decrement-qty btn btn-sm button-style decrement-qty_{{ item.item_id }} 	
-                                            {% if item.size %}decrement-size_{{ item.item_id }}_{{ item.size }}{% endif %}"
-                                                data-item_id="{{ item.item_id }}" data-product_size="{{ item.size }}">
-                                                <span>
-                                                    <i class="fas fa-minus fa-sm"></i>
-                                                </span>
-                                            </button>
-                                        </div>
-                                        <input class="form-control form-control-sm qty_input id_qty_{{ item.item_id }} {% if item.size %}size_{{ item.item_id }}_{{ item.size }}{% endif %}" type="number" type="number"
-                                            name="quantity" value="{{ item.quantity }}" min="1" max="99"
-                                            data-item_id="{{ item.item_id }}" data-product_size="{{ item.size }}">
-                                        <div class="input-group-append">
-                                            <button class="increment-qty btn btn-sm button-style increment-qty_{{ item.item_id }} 	
-                                                {% if item.size %}increment-size_{{ item.item_id }}_{{ item.size }}{% endif %}"
-                                                data-item_id="{{ item.item_id }}" data-product_size="{{ item.size }}">
-                                                <span>
-                                                    <i class="fas fa-plus fa-sm"></i>
-                                                </span>
-                                            </button>
-                                        </div>
-                                        {% if item.product.has_sizes %}
-                                        <input type="hidden" name="product_size" value="{{ item.size }}">
-                                        {% endif %}
-                                    </div>
-                                </div>
-                            </form>
-                            <a class="btn btn-sm update-link button-secondary-style mt-3 float-start"><small>Update</small></a>
-                            <a class="btn btn-sm remove-item button-secondary-style float-end mt-3" id="remove_{{ item.item_id }}"
-                                data-product_size="{{ item.size }}"><small>Remove</small></a>
-                        </div>
+                <div class="row text-center">
+                    <div class="col-12 col-sm-6 mb-3">
+                        {% if item.product.image_front %}
+                        <img class="img-fluid rounded" src="{{ item.product.image_front.url }}"
+                            alt="{{ item.product.name }}">
+                        {% else %}
+                        <img class="img-fluid rounded" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}">
+                        {% endif %}
                     </div>
-                    <hr class="my-4">
+                    <div class="col-12 col-sm-6 content-text my-auto">
+                        <p class="my-0"><strong>{{ item.product.name }}</strong></p>
+                        <p class="my-0"><strong>Size:
+                            </strong>{% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}
+                        </p>
+                    </div>
+                    <div class="col-12 col-sm-6 content-text">
+                        <p class="my-0">€{{ item.product.price }}</p>
+                    </div>
+                    <div class="col-12 col-sm-6 px-5 mt-2">
+                        <form class="form update-form" method="POST" action="{% url 'adjust_bag' item.item_id %}">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <div class="input-group input-group-{{ item.item_id }}">
+                                    <div class="input-group-prepend">
+                                        <button
+                                            class="decrement-qty btn btn-sm button-style decrement-qty_{{ item.item_id }} 	
+                                            {% if item.size %}decrement-size_{{ item.item_id }}_{{ item.size }}{% endif %}"
+                                            data-item_id="{{ item.item_id }}" data-product_size="{{ item.size }}">
+                                            <span>
+                                                <i class="fas fa-minus fa-sm"></i>
+                                            </span>
+                                        </button>
+                                    </div>
+                                    <input
+                                        class="form-control form-control-sm qty_input id_qty_{{ item.item_id }} {% if item.size %}size_{{ item.item_id }}_{{ item.size }}{% endif %}"
+                                        type="number" name="quantity" value="{{ item.quantity }}" min="1" max="99"
+                                        data-item_id="{{ item.item_id }}" data-product_size="{{ item.size }}">
+                                    <div class="input-group-append">
+                                        <button
+                                            class="increment-qty btn btn-sm button-style increment-qty_{{ item.item_id }} 	
+                                                {% if item.size %}increment-size_{{ item.item_id }}_{{ item.size }}{% endif %}"
+                                            data-item_id="{{ item.item_id }}" data-product_size="{{ item.size }}">
+                                            <span>
+                                                <i class="fas fa-plus fa-sm"></i>
+                                            </span>
+                                        </button>
+                                    </div>
+                                    {% if item.product.has_sizes %}
+                                    <input type="hidden" name="product_size" value="{{ item.size }}">
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </form>
+                        <a
+                            class="btn btn-sm update-link button-secondary-style mt-3 float-start"><small>Update</small></a>
+                        <a class="btn btn-sm remove-item button-secondary-style float-end mt-3"
+                            id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}"><small>Remove</small></a>
+                    </div>
+                </div>
+                <hr class="my-4">
                 {% endfor %}
                 <div class="row text-end">
                     <div class="col">
@@ -110,9 +115,11 @@
                     <tr>
                         <td class="p-3 w-25">
                             {% if item.product.image_front %}
-                            <img class="img-fluid rounded" src="{{ item.product.image_front.url }}" alt="{{ item.product.name }}">
+                            <img class="img-fluid rounded" src="{{ item.product.image_front.url }}"
+                                alt="{{ item.product.name }}">
                             {% else %}
-                            <img class="img-fluid rounded" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}">
+                            <img class="img-fluid rounded" src="{{ MEDIA_URL }}noimage.png"
+                                alt="{{ item.product.name }}">
                             {% endif %}
                         </td>
                         <td class="py-3">
@@ -130,7 +137,8 @@
                                 <div class="form-group">
                                     <div class="input-group input-group-{{ item.item_id }}">
                                         <div class="input-group-prepend">
-                                            <button class="decrement-qty btn btn-sm button-style decrement-qty_{{ item.item_id }} 
+                                            <button
+                                                class="decrement-qty btn btn-sm button-style decrement-qty_{{ item.item_id }} 
                                             {% if item.size %}decrement-size_{{ item.item_id }}_{{ item.size }}{% endif %}"
                                                 data-item_id="{{ item.item_id }}" data-product_size="{{ item.size }}">
                                                 <span>
@@ -138,11 +146,13 @@
                                                 </span>
                                             </button>
                                         </div>
-                                        <input class="form-control form-control-sm qty_input id_qty_{{ item.item_id }} {% if item.size %}size_{{ item.item_id }}_{{ item.size }}{% endif %}" 
-                                            type="number"name="quantity" value="{{ item.quantity }}" min="1" max="99"
+                                        <input
+                                            class="form-control form-control-sm qty_input id_qty_{{ item.item_id }} {% if item.size %}size_{{ item.item_id }}_{{ item.size }}{% endif %}"
+                                            type="number" name="quantity" value="{{ item.quantity }}" min="1" max="99"
                                             data-item_id="{{ item.item_id }}" data-product_size="{{ item.size }}">
                                         <div class="input-group-append">
-                                            <button class="increment-qty btn btn-sm button-style increment-qty_{{ item.item_id }} 	
+                                            <button
+                                                class="increment-qty btn btn-sm button-style increment-qty_{{ item.item_id }} 	
                                             {% if item.size %}increment-size_{{ item.item_id }}_{{ item.size }}{% endif %}"
                                                 data-item_id="{{ item.item_id }}" data-product_size="{{ item.size }}">
                                                 <span>
@@ -157,7 +167,8 @@
                                 </div>
                             </form>
                             <a class="btn btn-sm update-link button-secondary-style mt-3"><small>Update</small></a>
-                            <a class="btn btn-sm remove-item button-secondary-style float-end mt-3" id="remove_{{ item.item_id }}"
+                            <a class="btn btn-sm remove-item button-secondary-style float-end mt-3"
+                                id="remove_{{ item.item_id }}"
                                 data-product_size="{{ item.size }}"><small>Remove</small></a>
                         </td>
                         <td class="py-3">
@@ -193,7 +204,8 @@
                 <div class="col">
                     <h4 class="mt-3">Your bag is empty</h4>
                     <!-- Image contribution by Freepik @ https://www.flaticon.com -->
-                    <img src="{{ MEDIA_URL }}shopping-bag.png" height='200' width="200" class="img-fluid d-block ms-auto me-auto mt-5" alt="">
+                    <img src="{{ MEDIA_URL }}shopping-bag.png" height='200' width="200"
+                        class="img-fluid d-block ms-auto me-auto mt-5" alt="">
                     <a href="{% url 'products' %}" class="btn button-style mt-5 mb-5">
                         <span>
                             <i class="fas fa-chevron-left"></i>
@@ -214,23 +226,26 @@
 
 <script type="text/javascript">
     // Update quantity on click
-    $('.update-link').click(function(e) {
+    $('.update-link').click(function (e) {
         var form = $(this).prev('.update-form');
         form.submit();
     })
 
     // Remove item and reload on click
-    $('.remove-item').click(function(e) {
+    $('.remove-item').click(function (e) {
         var csrfToken = "{{ csrf_token }}";
         var itemId = $(this).attr('id').split('remove_')[1];
         var size = $(this).data('product_size');
         var url = `/bag/remove/${itemId}/`;
-        var data = {'csrfmiddlewaretoken': csrfToken, 'product_size': size};
+        var data = {
+            'csrfmiddlewaretoken': csrfToken,
+            'product_size': size
+        };
 
         $.post(url, data)
-         .done(function() {
-             location.reload();
-         });
+            .done(function () {
+                location.reload();
+            });
     })
 </script>
 {% endblock %}

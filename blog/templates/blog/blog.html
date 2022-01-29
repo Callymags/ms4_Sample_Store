@@ -14,61 +14,65 @@
         </div>
     </div>
 </div>
-    <div class="container">
-        <div class="row mt-3 mb-5">
-            {% for post in posts %}
-            <div class="col-12 col-sm-8 offset-sm-2 col-md-4 offset-md-1 col-lg-3">
-                <div class="card">
-                    <!-- Blog post image -->
-                    <div class="image-container mb-4">
-                        {% if post.image %}
-                        <a href="{% url 'post' post.slug %}">
-                            <img class="card-img-top blog-img img-fluid" src="{{ post.image.url }}" alt="{{ post.title }}">
-                        </a>
-                        {% else %}
-                        <a href="{% url 'post' post.slug %}">
-                            <img class="card-img-top blog-img img-fluid" src="{{ MEDIA_URL }}no-camera.png"
-                                alt="{{ post.title }}">
-                        </a>
-                        {% endif %}
-                    </div>
-                    <div class="card-body">
-                        <!-- Edit  and Delete blog post buttons -->
-                        {% if request.user.is_superuser %}
-                        <small class="mt-3">
-                            <a class="btn btn-link link-style" href="{% url 'edit_post' post.slug %}">Edit Post</a> | 
-                            <a type="button" class="btn btn-link link-style" data-bs-target='#deletePostModal{{ post.id }}' data-bs-toggle="modal">Delete</a>
-                        </small>
-                        <!-- Delete Post Modal -->
-                        <div class="modal fade" id="deletePostModal{{ post.id }}" tabindex="-1" aria-labelledby="deletePostModalLabel"
-                        aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="deletePostModalLabel">Delete Post</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <p>Are you sure you want to delete this Post?</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn button-secondary-style" data-bs-dismiss="modal">Close</button>
-                                        <a type="button" href="{% url 'delete_post' post.id %}" class="btn button-style">Delete</a>
-                                    </div>
+<div class="container">
+    <div class="row mt-3 mb-5">
+        {% for post in posts %}
+        <div class="col-12 col-sm-8 offset-sm-2 col-md-4 offset-md-1 col-lg-3 mb-5">
+            <div class="card">
+                <!-- Blog post image -->
+                <div class="image-container mb-4">
+                    {% if post.image %}
+                    <a href="{% url 'post' post.slug %}">
+                        <img class="card-img-top blog-img img-fluid" src="{{ post.image.url }}" alt="{{ post.title }}">
+                    </a>
+                    {% else %}
+                    <a href="{% url 'post' post.slug %}">
+                        <img class="card-img-top blog-img img-fluid" src="{{ MEDIA_URL }}no-camera.png"
+                            alt="{{ post.title }}">
+                    </a>
+                    {% endif %}
+                </div>
+                <div class="card-body">
+                    <!-- Edit  and Delete blog post buttons -->
+                    {% if request.user.is_superuser %}
+                    <small class="mt-3">
+                        <a class="btn btn-link link-style" href="{% url 'edit_post' post.slug %}">Edit Post</a> |
+                        <a type="button" class="btn btn-link link-style" data-bs-target='#deletePostModal{{ post.id }}'
+                            data-bs-toggle="modal">Delete</a>
+                    </small>
+                    <!-- Delete Post Modal -->
+                    <div class="modal fade" id="deletePostModal{{ post.id }}" tabindex="-1"
+                        aria-labelledby="deletePostModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="deletePostModalLabel">Delete Post</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Are you sure you want to delete this Post?</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn button-secondary-style"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <a type="button" href="{% url 'delete_post' post.id %}"
+                                        class="btn button-style">Delete</a>
                                 </div>
                             </div>
                         </div>
-                        {% endif %}
-                        <!-- Blog post title and intro -->
-                        <h2>{{ post.title }}</h2>
-                        <small>By {{ post.author }}</small>
-                        <div class="text-end mt-3">
-                            <a class="btn btn-sm button-style ms-2" href="{% url 'post' post.slug %}">View Post</a>
-                        </div>
+                    </div>
+                    {% endif %}
+                    <!-- Blog post title and intro -->
+                    <h2>{{ post.title }}</h2>
+                    <small>By {{ post.author }}</small>
+                    <div class="text-end mt-3">
+                        <a class="btn btn-sm button-style ms-2" href="{% url 'post' post.slug %}">View Post</a>
                     </div>
                 </div>
             </div>
-            {% endfor %}
         </div>
+        {% endfor %}
     </div>
+</div>
 {% endblock %}

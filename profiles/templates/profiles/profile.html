@@ -2,77 +2,78 @@
 {% load static %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
+<link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
 {% endblock %}
 
 {% block content %}
-    <div class="container mt-4">
-        <div class="row">
-            <div class="col text-center">
-                <h2 class="logo-font mb-2">Profile</h2>
-                <hr class="divider-style w-50 ms-auto me-auto">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12 col-md-10 offset-md-1">
-                <h4>Default Delivery Information</h4>
-                <form class="mt-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
-                    {% csrf_token %}
-                    {{ form|crispy }}
-                    <button class="btn button-style mb-4 float-end">Update Information</button>
-                </form>
-            </div>
-            {% if orders %}
-            <div class="col-12 col-md-10 offset-md-1">
-                <h4>Order History</h4>
-                <div class="order-history table-responsive">
-                    <table class="table table-sm table-borderless">
-                        <thead>
-                            <tr>
-                                <th>Order Number</th>
-                                <th>Date</th>
-                                <th>Items</th>
-                                <th>Order Total</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for order in orders %}
-                                <tr>
-                                    <td>
-                                        <a href="{% url 'order_history' order.order_number %}"
-                                        title="{{ order.order_number }}" class="link-style">
-                                            {{ order.order_number|truncatechars:6 }}
-                                        </a>
-                                    </td>
-                                    <td>{{ order.date }}</td>
-                                    <td>
-                                        <ul class="list-unstyled">
-                                            {% for item in order.lineitems.all %}
-                                                <li class="small">
-                                                    {% if item.product.has_sizes %}
-                                                        Size {{ item.product.size|upper }}
-                                                    {% endif %}{{ item.product.name }} x{{ item.quantity }}
-                                                </li>
-                                            {% endfor %}
-                                        </ul>
-                                    </td>
-                                    <td>€{{ order.order_total }}</td>
-                                </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            {% endif %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col text-center">
+            <h2 class="logo-font mb-2">Profile</h2>
+            <hr class="divider-style w-50 ms-auto me-auto">
         </div>
     </div>
+    <div class="row">
+        <div class="col-12 col-md-10 offset-md-1">
+            <h4>Default Delivery Information</h4>
+            <form class="mt-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <button class="btn button-style mb-4 float-end">Update Information</button>
+            </form>
+        </div>
+        {% if orders %}
+        <div class="col-12 col-md-10 offset-md-1">
+            <h4>Order History</h4>
+            <div class="order-history table-responsive">
+                <table class="table table-sm table-borderless">
+                    <thead>
+                        <tr>
+                            <th>Order Number</th>
+                            <th>Date</th>
+                            <th>Items</th>
+                            <th>Order Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for order in orders %}
+                        <tr>
+                            <td>
+                                <a href="{% url 'order_history' order.order_number %}" title="{{ order.order_number }}"
+                                    class="link-style">
+                                    {{ order.order_number|truncatechars:6 }}
+                                </a>
+                            </td>
+                            <td>{{ order.date }}</td>
+                            <td>
+                                <ul class="list-unstyled">
+                                    {% for item in order.lineitems.all %}
+                                    <li class="small">
+                                        {% if item.product.has_sizes %}
+                                        Size {{ item.product.size|upper }}
+                                        {% endif %}{{ item.product.name }} x{{ item.quantity }}
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </td>
+                            <td>€{{ order.order_total }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
 {% endblock %}
 
 {% block postloadjs %}
 <script type="text/javascript">
     $("#subscribersForm .emailinput").removeClass("is-invalid")
-    $("#id_full_name, #id_default_phone_number, #id_default_street_address1, #id_default_street_address2, #id_default_town_or_city, #id_default_county, #id_default_postcode").attr("pattern", "\\S(.*\\S)?");
+    $("#id_full_name, #id_default_phone_number, #id_default_street_address1, #id_default_street_address2, #id_default_town_or_city, #id_default_county, #id_default_postcode")
+        .attr("pattern", "\\S(.*\\S)?");
 </script>
-    {{ block.super }}
-    <script type="text/javascript" src="{% static 'profiles/js/countryfield.js' %}"></script>
+{{ block.super }}
+<script type="text/javascript" src="{% static 'profiles/js/countryfield.js' %}"></script>
 {% endblock %}

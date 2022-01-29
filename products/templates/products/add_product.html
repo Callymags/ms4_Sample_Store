@@ -2,25 +2,25 @@
 {% load static %}
 
 {% block content %}
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-md-10 offset-md-1">
-                <h2 class="text-center mt-4">Add a Product</h2>
-                <hr class="divider-style w-50 ms-auto me-auto">
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-12 col-md-10 offset-md-1">
-                <form method="POST" action="{% url 'add_product' %}" class="form mb-2" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {{ form | crispy }}
-                    <div class="text-end mt-4 mb-4">
-                        <a class="btn button-secondary-style" href="{% url 'products' %}">Cancel</a>
-                        <button class="btn button-style" type="submit">Add Product</button>
-                    </div>
-                </form>
-            </div>            
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-10 offset-md-1">
+            <h2 class="text-center mt-4">Add a Product</h2>
+            <hr class="divider-style w-50 ms-auto me-auto">
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-12 col-md-10 offset-md-1">
+            <form method="POST" action="{% url 'add_product' %}" class="form mb-2" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form | crispy }}
+                <div class="text-end mt-4 mb-4">
+                    <a class="btn button-secondary-style" href="{% url 'products' %}">Cancel</a>
+                    <button class="btn button-style" type="submit">Add Product</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock %}

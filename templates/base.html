@@ -14,18 +14,19 @@
   {% endblock %}
 
   {% block corecss %}
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
   {% endblock %}
 
   {% block extra_css %}
   {% endblock %}
 
   {% block corejs %}
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
   </script>
@@ -56,7 +57,8 @@
       <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
         <form method="GET" action="{% url 'products' %}" class="d-none d-lg-flex justify-content-center">
           <div class="input-group rounded-pill">
-            <input type="text" class="form-control w-75" name="q" placeholder="Search" aria-label="Search" aria-describedby="search-icon-addon">
+            <input type="text" class="form-control w-75" name="q" placeholder="Search" aria-label="Search"
+              aria-describedby="search-icon-addon">
             <button class="btn btn-large mb-3" type="submit">
               <span class="input-group-text" id="search-icon-addon"><i class="fas fa-search icon-style"></i></span>
             </button>
@@ -117,17 +119,17 @@
   {% if messages %}
   <div class="toast-container position-absolute top-0 end-0 p-3">
     {% for message in messages %}
-      {% with message.level as level %}
-          {% if level == 40 %}
-              {% include 'includes/toasts/toast_error.html' %}
-          {% elif level == 30 %}
-              {% include 'includes/toasts/toast_warning.html' %}
-          {% elif level == 25 %}
-              {% include 'includes/toasts/toast_success.html' %}
-          {% else %}
-              {% include 'includes/toasts/toast_info.html' %}
-          {% endif %}
-      {% endwith %}
+    {% with message.level as level %}
+    {% if level == 40 %}
+    {% include 'includes/toasts/toast_error.html' %}
+    {% elif level == 30 %}
+    {% include 'includes/toasts/toast_warning.html' %}
+    {% elif level == 25 %}
+    {% include 'includes/toasts/toast_success.html' %}
+    {% else %}
+    {% include 'includes/toasts/toast_info.html' %}
+    {% endif %}
+    {% endwith %}
     {% endfor %}
   </div>
   {% endif %}
@@ -143,7 +145,7 @@
     <div class="container mt-3 mb-3">
       <div class="row">
         <div class="col-sm-12 col-md-4 text-center footer-mobile-margin">
-          <p>Sign up to receive our weekly newsletter</p> 
+          <p>Sign up to receive our weekly newsletter</p>
           <form id="subscribersForm" class="w-75 d-inline" action="{% url 'home' %}" method="POST">
             {% csrf_token %}
             {{ newsletter_form|crispy }}
@@ -153,12 +155,12 @@
         <hr class="d-md-none mt-3 w-50 divider-style offset-3">
         <div class="col-sm-12 col-md-4 text-center footer-mobile-margin">
           <h3>Follow us:</h3>
-            <a class="social-link" target="_blank" href="https://www.instagram.com/mmacork/">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a class="social-link" target="_blank" href="https://www.facebook.com/mmacork">
-              <i class="fab fa-facebook"></i>
-            </a>
+          <a class="social-link" target="_blank" href="https://www.instagram.com/mmacork/">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a class="social-link" target="_blank" href="https://www.facebook.com/mmacork">
+            <i class="fab fa-facebook"></i>
+          </a>
         </div>
         <hr class="d-md-none mt-3 w-50 divider-style offset-3">
         <div class="col-sm-12 col-md-4 text-center footer-mobile-margin">
@@ -197,18 +199,17 @@
 
   {% block postloadjs %}
   <script type="text/javascript">
-
-      // *Contribution info in ReadMe: Dismiss toast using the X icon 
-      let toastElList = [].slice.call(document.querySelectorAll('.toast'))
-      let toastList = toastElList.map(function (toastEl) {
-        let option = {
-          animation: true,
-          autohide: true,
-          delay: 5000,
-        }
-        let bsToast = new bootstrap.Toast(toastEl, option)
-        bsToast.show();
-      })
+    // *Contribution info in ReadMe: Dismiss toast using the X icon 
+    let toastElList = [].slice.call(document.querySelectorAll('.toast'))
+    let toastList = toastElList.map(function (toastEl) {
+      let option = {
+        animation: true,
+        autohide: true,
+        delay: 5000,
+      }
+      let bsToast = new bootstrap.Toast(toastEl, option)
+      bsToast.show();
+    })
   </script>
   {% endblock %}
 
