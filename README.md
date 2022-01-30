@@ -252,7 +252,7 @@ plug in was used to handle authentication, registration and general account mana
 ### Products Page
 * Correct product count on page – PASS
 * Sort filters working – PASS
-* Product cards displaying neatly on all screen sizes
+* Product cards displaying neatly on all screen sizes - PASS
 * Category links on cards working – PASS
 * Clicking on card image brings you to product details page – PASS
 * Edit/Delete links on product cards working for admin user – PASS
@@ -260,7 +260,7 @@ plug in was used to handle authentication, registration and general account mana
 ### Product Details
 * Carousel front and back images functioning correctly - PASS
 * Product info displaying correctly – PASS
-* Quantity input bar does not go below 1 or above 99 – FAIL
+* Quantity input bar does not go below 1 or above 99 – FAIL (User can input values below 0 and above 99 using keyboard)
 * Size dropdown functioning correctly – PASS
 * Edit/Delete links working for admin users - PASS
 * Edit/Delete links not visible to regular users - PASS
@@ -276,7 +276,7 @@ plug in was used to handle authentication, registration and general account mana
 ### Shopping Bag
 * Shopping bag displays correct product info (image, title, size, quantity) – PASS
 * Update quantity input working on mobile and larger screens – PASS
-* User cannot input number under 1 or over 99 in quantity input – FAIL
+* User cannot input number under 1 or over 99 in quantity input – FAIL (User can input values below 0 and above 99 using keyboard)
 * Subtotal on larger screen calculates correct price when quantity input updated – PASS
 * Remove item button working on small and large screens – PASS
 * Bag total calculates correct total for large and small screens - PASS
@@ -491,16 +491,16 @@ database included with Django is setup.
 In either your `env.py` file or your environment settings (like GitPod offers) you'll need to add the following  environment variables:
 
 * SECRET_KEY = <Your secret key>
-* STRIPE_PUBLIC_KEY = <Stripe public key>
-* STRIPE_SECRET_KEY = <Stripe secret key>
-* STRIPE_WH_SECRET  = <Webhook key>
-* AWS_ACCESS_KEY_ID = <Your AWS access key id>
-* AWS_S3_REGION_NAME = <Your AWS region name>
-* AWS_SECRET_ACCESS_KEY = <Your AWS secret key>
-* AWS_STORAGE_BUCKET_NAME = <Your AWS bucket name>
-* EMAIL_HOST_USER = <Email you will send newsletter from>
-* EMAIL_HOST_PASSWORD = <Password key provided by Gmail>
-* DATABASE_URL = <Postgres URL>
+* STRIPE_PUBLIC_KEY = Stripe public key
+* STRIPE_SECRET_KEY = Stripe secret key
+* STRIPE_WH_SECRET  = Webhook key
+* AWS_ACCESS_KEY_ID = Your AWS access key id
+* AWS_S3_REGION_NAME = Your AWS region name
+* AWS_SECRET_ACCESS_KEY = Your AWS secret key
+* AWS_STORAGE_BUCKET_NAME = Your AWS bucket name
+* EMAIL_HOST_USER = Email you will send newsletter from
+* EMAIL_HOST_PASSWORD = Password key provided by Gmail
+* DATABASE_URL = Postgres URL
     
 
 #### Running the app
