@@ -94,7 +94,7 @@ As a developer, I want to:
 2. Create a professional looking project that I will be proud to put in my portfolio.
 
 ### Wireframes 
-I used Balsamiq wireframes create a basic visual of how the main pages of the site would look on desktop  and mobile devices.
+I used Balsamiq wireframes to create a basic visual of how the main pages of the site would look on desktop  and mobile devices.
 
 You can view the wireframes below.
 
@@ -115,7 +115,7 @@ The four main colours I chose for the website are displayed in hex format below.
 
 * White #F5F5F5: Used for the navbar and the footer background colour
 * White #FCFCFC: Used for the body background colour
-* Red #F05454: Used for the website buttons and links, and the buttons on the website 
+* Red #F05454: Used for the website buttons and links 
 * Black ##121212: Used for the majority of the font colours on the site. 
 
 ### Fonts
@@ -215,19 +215,19 @@ plug in was used to handle authentication, registration and general account mana
 * [Google Developer Tools:](https://developer.chrome.com/docs/devtools/) Used to test responsive elements of page and to fix bugs.
 * [Git:](https://git-scm.com/) Useful to control and document page versions through git commits and git pushes.
 * [Github:](https://github.com/) Used to store project code and to deploy the website.
-* [AWS S3:]( https://aws.amazon.com/s3/) Used to store the static data for the live website. These include product images, blog images and js and css files
+* [AWS S3:](https://aws.amazon.com/s3/) Used to store the static data for the live website. These include product images, blog images and js and css files
 * [Django:]( https://www.djangoproject.com/) Used in site development to handle user data and python queries to database. 
 * [Heroku:]( https://www.heroku.com/) Used to deploy the live version of the site.
 * [Balsamiq:](https://balsamiq.com/) Used to draw up wireframes so I could visualise the design of the website.
-* [Windows Paint 3D:]( https://www.microsoft.com/en-us/p/paint-3d/9nblggh5fv99?activetab=pivot:overviewtab) Used to create a transparent PNGs of the Product images and MMA Cork logo.
-* [Color Hunt:]( https://colorhunt.co/) Used to find suitable background colours for styling.   
+* [Windows Paint 3D:](https://www.microsoft.com/en-us/p/paint-3d/9nblggh5fv99?activetab=pivot:overviewtab) Used to create transparent PNGs of the Product images and MMA Cork logo.
+* [Color Hunt:](https://colorhunt.co/) Used to find suitable background colours for styling.   
 * [Online-Convert.com:]( https://www.online-convert.com/) Used to convert MMA Cork logo to favicon format.
 
 ### Libraries
 * [Django Allauth:](https://django-allauth.readthedocs.io/en/latest/installation.html) Used to set up user authentication on the site.
 * [Google fonts:](https://fonts.google.com/) Used to find appropriate fonts for the website
 * [Font Awesome:](https://fontawesome.com/icons?d=gallery&p=2) Provided the icons for the website buttons and the social media links in the footer. 
-*  [Flaticon](https://www.flaticon.com/):  Provided me with a images to display when there was no images on the product card, or when there was no items in the user’s shopping bag. [View here.] 
+*  [Flaticon](https://www.flaticon.com/):  Provided me with images to display when there was no images on the product card, or when there was no items in the user’s shopping bag.
 
 
 ## Manual Testing
@@ -373,7 +373,7 @@ As a software developer/recruiter, I want:
 3. The ability to examine the creator’s ReadMe for more details on how the project was created.
 * Link to the project’s GitHub repository in the footer of the website 
 4. View the site and play around with its features e.g fake purchases
-* Live site deployed to Heroku and sample card provided to users in at the top of the project ReadMe. This will allow users to view the site, comment on blog posts and make fake purchases.
+* Live site deployed to Heroku and sample card provided to users at the top of the project ReadMe. This will allow users to view the site, comment on blog posts and make fake purchases.
 
 </details>
 
@@ -439,7 +439,8 @@ let toastList = toastElList.map(function (toastEl) {
 * **Newsletter form automatically submitting on Sign up and Log In pages**
 
 Problem: When signing up to the site or logging in, the user’s email that they inputted into the login form would automatically be inputted into the newsletter form also. This was happening because the bootstrap crispy form plug in uses the same id: `id_email` for both form inputs. As a result, the form would submit when the user clicked the login/sign up button.
-Solution: I had to use a prevent default submission event on the newsletter form and only submit the form when the subscribe button was clicked. I also used an if statement to remove the email which would automatically be inputted into the newsletter input. You can see the code solution below below or at the end of the login and signup html pages.
+
+Solution: I had to use a prevent default submission event on the newsletter form and only submit the form when the subscribe button was clicked. I also used an if statement to remove the email which would automatically be inputted into the newsletter input. You can see the code solution below or at the end of the login and signup html pages.
 ```
 <script type="text/javascript">
   // Erases the user's email from subscribersForm
@@ -490,12 +491,11 @@ database included with Django is setup.
 #### Adding environment varibales:
 In either your `env.py` file or your environment settings (like GitPod offers) you'll need to add the following  environment variables:
 
-* SECRET_KEY = <Your secret key>
+* SECRET_KEY = Secret key
 * STRIPE_PUBLIC_KEY = Stripe public key
 * STRIPE_SECRET_KEY = Stripe secret key
 * STRIPE_WH_SECRET  = Webhook key
 * AWS_ACCESS_KEY_ID = Your AWS access key id
-* AWS_S3_REGION_NAME = Your AWS region name
 * AWS_SECRET_ACCESS_KEY = Your AWS secret key
 * AWS_STORAGE_BUCKET_NAME = Your AWS bucket name
 * EMAIL_HOST_USER = Email you will send newsletter from
