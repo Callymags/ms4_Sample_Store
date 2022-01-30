@@ -1,7 +1,45 @@
+# Sample Store
+![Mock Up Image](media/readme-mockup.png)
+* You can view the live project [here.]( https://callymags-sample-store.herokuapp.com/)
+
+## Table of Contents
+* [Project Description](#project-description)
+  * [User Stories](#user-stories)
+  * [Wireframes](#wireframes)
+* [Features](#features)
+  * [Colour Palette](#colour-palette)
+  * [Fonts](#fonts)
+  * [Base Template Features](#base-template-features)
+  * [Home and Landing Page Features](#home-page-features)
+  * [Log In/Register Features](#log-in/register-features)
+  * [Profile Features](#profile-features)
+  * [Products Page Features](#products-page-features)
+  * [Product Details Features](#product-details-features)
+  * [Shopping Bag Features](#shopping-bag-features)
+  * [Secure Checkout Features](#edit-experience-page-features)
+  * [Admin Page Log In Details](#secure-checkout-features)
+  * [Blog Features](#blog)
+  * [Blog Post Page Features](#blog-post-page-features)
+  * [Admin Extra Features](#admin-extra-features)
+  * [Admin Page Log In Details](#admin-page-log-in-details)
+  * [Future Features](#future-features)
+* [Technologies Used](#technologies-used)
+  * [Languages](#languages)
+  * [Frameworks](#frameworks)
+  * [Libraries](#libraries)
+* [Manual Testing](#manual-testing)
+* [Code Validation](#code-validation)
+* [Bugs Encountered](#bugs-encountered)
+* [Deployment](#deployment)
+  * [Run Code Locally](#how-to-run-code-locally)
+  * [Heroku](#deploying-to-heroku)
+* [Contributions](#contributions)
+* [Acknowledgements](#acknowledgements)
+
 ## Project Description
 This website is the final milestone project of the Code Institute Full Stack Web Development Program. The main Technologies used for the site are HTML, CSS, JavaScript, Python and Django.
 
-My final project is an online store that sells training clothing and protein belonging to the MMA Cork gym. The purpose of the site is to allow members to view different products, add these products to their basket and securely purchase their order. 
+My final project is an online store that sells training clothing belonging to the MMA Cork gym. The purpose of the site is to allow members to view different products, add these products to their basket and securely purchase their order. 
 
 The user is also able to create an account on the website and view the MMA Cork Blog posts.
 
@@ -382,7 +420,7 @@ No problems were found
 
 
 ## Bugs Encountered 
-* ** Bootstrap toasts not dismissing **
+* **Bootstrap toasts not dismissing**
 Problem: The toasts from the bootstrap docs were not closing when clicking the ‘X’ icon. I looked up the Bootstrap docs as a result and found some JavaScript that fixed the problem. The code snippet can be seen below and at the end of the base.html page.
 
 ```
@@ -398,7 +436,7 @@ let toastList = toastElList.map(function (toastEl) {
   })
 ```
 
-* ** Newsletter form automatically submitting on Sign up and Log In pages **
+* **Newsletter form automatically submitting on Sign up and Log In pages**
 Problem: When signing up to the site or logging in, the user’s email that they inputted into the login form would automatically be inputted into the newsletter form also. This was happening because the bootstrap crispy form plug in uses the same id: `id_email` for both form inputs. As a result, the form would submit when the user clicked the login/sign up button.
 Solution: I had to use a prevent default submission event on the newsletter form and only submit the form when the subscribe button was clicked. I also used an if statement to remove the email which would automatically be inputted into the newsletter input. You can see the code solution below below or at the end of the login and signup html pages.
 ```
@@ -425,10 +463,9 @@ Solution: I had to use a prevent default submission event on the newsletter form
 The app was coded using the GitPod IDE. The git repository is stored locally before being pushed to the remote repository online at GitHub.
 
 To run the app locally you will need the following:
-    * Python installed on your environment
-    * An AWS account
-    * A Stripe account
-    * A Google maps API key
+* Python installed on your environment
+* An AWS account
+* A Stripe account
 
 #### Setting up the code:
 1. Go to: [https://github.com/Callymags/ms4_Sample_Store]( https://github.com/Callymags/ms4_Sample_Store)
@@ -487,6 +524,23 @@ In either your `env.py` file or your environment settings (like GitPod offers) y
 `git push heroku main`
 
 The site is now deployed remotely.
+
+## Contributions 
+### Code 
+1. **W3 Schools**
+* The following page allowed me to add a hover effect to the product images to display the product description. [View here.](https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_image_overlay_opacity)
+
+2. **Code Institute Slack Channel**
+* Allowed me to solve the problem I had with a bug that didn’t allow the toast notification to be dismissed.
+
+### Media
+* MMA Cork Gym’s Facebook page for the hero image
+* Alpha Caveman Apparel for the product images
+## Acknowledgements
+* My mentor, Reuben Ferrante for the invaluable feedback during the project.
+* Code Institute Slack channel: Provided support when I encountered some problems with code.
+* Code Institute Tutor Support: Guided me in the right direction when I encountered big problems that I couldn’t solve in my code. 
+* Friends & Family: Tested the website.
 
 
 
