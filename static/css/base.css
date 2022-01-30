@@ -66,6 +66,10 @@ input[name='q']::placeholder {
     color: #aab7c4;
 }
 
+.display-over {
+    z-index: 9999999;
+} 
+
 /* -------------------FOOTER--------------------- */
 footer {
     background-color: #F5F5F5;
