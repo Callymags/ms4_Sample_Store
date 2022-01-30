@@ -10,14 +10,13 @@
   * [Colour Palette](#colour-palette)
   * [Fonts](#fonts)
   * [Base Template Features](#base-template-features)
-  * [Home and Landing Page Features](#home-page-features)
-  * [Log In/Register Features](#log-in/register-features)
+  * [Home Page Features](#home-page-features)
+  * [Log In/Register Features](#log-in-and-register-features)
   * [Profile Features](#profile-features)
   * [Products Page Features](#products-page-features)
   * [Product Details Features](#product-details-features)
   * [Shopping Bag Features](#shopping-bag-features)
-  * [Secure Checkout Features](#edit-experience-page-features)
-  * [Admin Page Log In Details](#secure-checkout-features)
+  * [Secure Checkout Features](#secure-checkout-features)
   * [Blog Features](#blog)
   * [Blog Post Page Features](#blog-post-page-features)
   * [Admin Extra Features](#admin-extra-features)
@@ -135,7 +134,7 @@ I used two different fonts for this website
 * Hero Image: The landing page has a hero image with a short heading within. This image covers the whole width of the page and has custom CSS styling to darken it. This allows the heading to the side of the image to stand out more. 
 * View Store: There is a visit store button on the left-hand side of the screen within the hero image that allows users to visit the store. This will bring users to the products page.
 
-### Log In/Register Features
+### Log In and Register Features
 * The [Django-allauth](https://django-allauth.readthedocs.io/en/latest/installation.html)
 plug in was used to handle authentication, registration and general account management on the site.
 * Registration: The user must input their email and password twice to register. The user must also enter a username.
@@ -421,6 +420,7 @@ No problems were found
 
 ## Bugs Encountered 
 * **Bootstrap toasts not dismissing**
+
 Problem: The toasts from the bootstrap docs were not closing when clicking the ‘X’ icon. I looked up the Bootstrap docs as a result and found some JavaScript that fixed the problem. The code snippet can be seen below and at the end of the base.html page.
 
 ```
@@ -437,6 +437,7 @@ let toastList = toastElList.map(function (toastEl) {
 ```
 
 * **Newsletter form automatically submitting on Sign up and Log In pages**
+
 Problem: When signing up to the site or logging in, the user’s email that they inputted into the login form would automatically be inputted into the newsletter form also. This was happening because the bootstrap crispy form plug in uses the same id: `id_email` for both form inputs. As a result, the form would submit when the user clicked the login/sign up button.
 Solution: I had to use a prevent default submission event on the newsletter form and only submit the form when the subscribe button was clicked. I also used an if statement to remove the email which would automatically be inputted into the newsletter input. You can see the code solution below below or at the end of the login and signup html pages.
 ```
