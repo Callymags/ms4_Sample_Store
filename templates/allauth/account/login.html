@@ -50,13 +50,19 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
 
 {% block postloadjs %}
 <script type="text/javascript">
+  // Erases the user's email from subscribersForm
+  if ($("input").hasClass('is-invalid')) {
+    $("#subscribersForm .emailinput").val('');
     $("#subscribersForm .emailinput").removeClass("is-invalid")
-    $("#subscribersForm").submit(function(e){
-        e.preventDefault();
-        $(".subscribe-button").on("click", function() {
-          $("#subscribersForm").submit();
-        });
+  }
+
+  // Stops the form from submitting by default when user submits log in form
+  $("#subscribersForm").submit(function(e){
+    e.preventDefault();
+    $(".subscribe-button").on("click", function() {
+      $('#subscribersForm').get(0).submit();
     });
+  });
 </script>
 {% endblock %}
 

@@ -25,12 +25,17 @@
 
 {% block postloadjs %}
 <script type="text/javascript">
-  $("#subscribersForm .emailinput").removeClass("is-invalid")
+  // Erases the user's email from subscribersForm
+  if ($("#signup_form input").hasClass('is-invalid')) {
+    $("#subscribersForm .emailinput").val('');
+  }
+
+  // Stops the form from submitting by default when user submits sign up form
   $("#subscribersForm").submit(function(e){
-        e.preventDefault();
-        $(".subscribe-button").on("click", function() {
-          $("#subscribersForm").submit();
-        });
+    e.preventDefault();
+    $(".subscribe-button").on("click", function() {
+      $('#subscribersForm').get(0).submit();
     });
+  });
 </script>
 {% endblock %}
