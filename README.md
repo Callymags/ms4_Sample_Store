@@ -375,5 +375,119 @@ No problems were found
 
 </details>
 
+## Code Validation 
+1. HTML validated using [W3C Markup Service](https://validator.w3.org/). 
+2. CSS code validated using [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/).
+3. Python code validated using Workspace Validator on gitpod.
+
+
+## Bugs Encountered 
+* ** Bootstrap toasts not dismissing **
+Problem: The toasts from the bootstrap docs were not closing when clicking the ‘X’ icon. I looked up the Bootstrap docs as a result and found some JavaScript that fixed the problem. The code snippet can be seen below and at the end of the base.html page.
+
+```
+let toastElList = [].slice.call(document.querySelectorAll('.toast'))
+let toastList = toastElList.map(function (toastEl) {
+    let option = {
+      animation: true,
+      autohide: true,
+      delay: 5000,
+    }
+    let bsToast = new bootstrap.Toast(toastEl, option)
+    bsToast.show();
+  })
+```
+
+* ** Newsletter form automatically submitting on Sign up and Log In pages **
+Problem: When signing up to the site or logging in, the user’s email that they inputted into the login form would automatically be inputted into the newsletter form also. This was happening because the bootstrap crispy form plug in uses the same id: `id_email` for both form inputs. As a result, the form would submit when the user clicked the login/sign up button.
+Solution: I had to use a prevent default submission event on the newsletter form and only submit the form when the subscribe button was clicked. I also used an if statement to remove the email which would automatically be inputted into the newsletter input. You can see the code solution below below or at the end of the login and signup html pages.
+```
+<script type="text/javascript">
+  // Erases the user's email from subscribersForm
+  if ($("input").hasClass('is-invalid')) {
+    $("#subscribersForm .emailinput").val('');
+    $("#subscribersForm .emailinput").removeClass("is-invalid")
+  }
+
+  // Stops the form from submitting by default when user submits sign up form
+  $("#subscribersForm").submit(function(e){
+    e.preventDefault();
+    $(".subscribe-button").on("click", function() {
+      $('#subscribersForm').get(0).submit();
+    });
+  });
+</script>
+```
+
+## Deployment
+
+### How to run code locally:
+The app was coded using the GitPod IDE. The git repository is stored locally before being pushed to the remote repository online at GitHub.
+
+To run the app locally you will need the following:
+    * Python installed on your environment
+    * An AWS account
+    * A Stripe account
+    * A Google maps API key
+
+#### Setting up the code:
+1. Go to: [https://github.com/Callymags/ms4_Sample_Store]( https://github.com/Callymags/ms4_Sample_Store)
+2. Click the "Code" button next to the "Gitpod" button which will have a dropdown including "Clone with HTTPS",
+"Open with GitHub Desktop" & "Download ZIP"
+3. To clone the repository using HTTPS, under "Clone with HTTPS", click the copy to clipboard icon. To clone the
+repository using an SSH key, including a certificate issued by your organization's SSH certificate authority, click Use SSH, then click the copy to clipboard icon.
+4. Open Git Bash.
+5. Change the current working directory to the location where you want the cloned directory to appear.
+7. Type git `clone`, and then paste the URL you copied in Step 3.
+8. Install the requirements by typing `pip3 install -r requirements.txt` in your CLI
+9. Finally create a superuser using `python3 manage.py create superuser`
+
+#### Creating a database:
+1. To use the local version of the database first type `python3 manage.py makemigrations`
+2. Then migrate (`python3 manage.py migrate`) the migrations so that your local db.sqlite3
+database included with Django is setup.
+3. To use the same data as this site, type `python3 manage.py loaddata`
+4. You now have a local version of the database.
+
+#### Adding environment varibales:
+In either your `env.py` file or your environment settings (like GitPod offers) you'll need to add the following  environment variables:
+
+* SECRET_KEY = <Your secret key>
+* STRIPE_PUBLIC_KEY = <Stripe public key>
+* STRIPE_SECRET_KEY = <Stripe secret key>
+* STRIPE_WH_SECRET  = <Webhook key>
+* AWS_ACCESS_KEY_ID = <Your AWS access key id>
+* AWS_S3_REGION_NAME = <Your AWS region name>
+* AWS_SECRET_ACCESS_KEY = <Your AWS secret key>
+* AWS_STORAGE_BUCKET_NAME = <Your AWS bucket name>
+* EMAIL_HOST_USER = <Email you will send newsletter from>
+* EMAIL_HOST_PASSWORD = <Password key provided by Gmail>
+* DATABASE_URL = <Postgres URL>
+    
+
+#### Running the app
+1. If you are using your AWS bucket to serve the static and media files, go to the bucket and create a file named `media/`
+2. Export all the files in your local environment directory `media`, to the `media/` file in your AWS bucket.
+3. You are ready to run the code locally!
+
+### Deploying to Heroku
+1. If you have added any new packages which the code requires to run, type `pip3 freeze > requirements.txt` to create a requirements file.
+2. If you have deleted the Procfile, create a new one containing: `web: gunicorn ms4_Sample_Store.wsgi:application` in your root directory.
+3. Create a new app in Heroku, if you want to use Heroku Postgres to serve your database you can do so by going to the dashboard *resources*>*add-ons* and attaching the Heroku Postgres database.
+* Please note, you will need to make your migrations and load the data to the new Postgres database as detailed above in the **Creating a database** steps. Ensure the DATABASE_URL variable matches that in your Heroku App's 
+**Config Vars**
+4. Add your environment variables as detailed in the steps for **Adding environment variables** above to your apps **Config Vars** including this new variable: USE_AWS = True
+5. Download the Heroku CLI if you haven't already (found under the *Deploy* tab on the dashboard).
+6. Login to Heroku using `heroku login`
+7. Set up a remote repository connected to you Heroku app: `git remote add heroku <your heroku git URL>`
+* If you're unsure of your Heroku git URL it can be found under *settings* on the dashboard.
+8. Finally push your code to the Heroku remote repo after making any change.  
+`git add .`   
+`git commit -m "some change"`  
+`git push heroku main`
+
+The site is now deployed remotely.
+
+
 
 
